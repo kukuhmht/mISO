@@ -56,7 +56,7 @@ dan juga tanggal script di ubah terlebih dahulu
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="#!" class="dropdown-button btn-large blue" data-activates="upload_dokumen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UPLOAD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/home'); ?>">Dokumen WMM</a></li>
+			<li><a class="waves-effect waves-light blue" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/home'); ?>">Dokumen WMM</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/unit_kerja'); ?>">Dokumen Unit Kerja</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/dokumen_revisi'); ?>">Dokumen Revisi</a></li>
           </ul>
@@ -121,12 +121,12 @@ dan juga tanggal script di ubah terlebih dahulu
                         <li><a class="collapsible-header waves-effect waves-blue">Bidang <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
 							<div class="collapsible-body">
 							  <ul>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Humas dan Hubin</a> </li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Kesiswaan</a></li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Kurikulum</a></li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Penelitian dan Pengembangan</a></li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Sarana dan Prasarana</a></li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Sumber Daya Manusia</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/humas_hubin');?>">&nbsp;&nbsp;&nbsp; Humas dan Hubin</a> </li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/kesiswaan');?>">&nbsp;&nbsp;&nbsp; Kesiswaan</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/kurikulum');?>">&nbsp;&nbsp;&nbsp; Kurikulum</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/pelitbang');?>">&nbsp;&nbsp;&nbsp; Penelitian dan Pengembangan</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/sarana_prasarana');?>">&nbsp;&nbsp;&nbsp; Sarana dan Prasarana</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/sdm');?>">&nbsp;&nbsp;&nbsp; Sumber Daya Manusia</a></li>
 								<li><div class="divider"></div></li>
 							  </ul>
 							</div>
@@ -136,23 +136,23 @@ dan juga tanggal script di ubah terlebih dahulu
                         <li><a class="collapsible-header waves-effect waves-blue">Kompetensi Keahlian <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
 							<div class="collapsible-body">
 							  <ul>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Administrasi Perkantoran</a></li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Administrasi Akuntansi</a></li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Administrasi Pemasaran</a></li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Rekayasa Perangkat Lunak</a></li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Multimedia</a></li>
-								<li><a class="waves-effect waves-blue" href="#dokumenunitkerja">&nbsp;&nbsp;&nbsp; Teknik Komputer & Jaringan</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/administrasi_perkantoran');?>">&nbsp;&nbsp;&nbsp; Administrasi Perkantoran</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/administrasi_akuntansi');?>">&nbsp;&nbsp;&nbsp; Administrasi Akuntansi</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/administrasi_pemasaran');?>">&nbsp;&nbsp;&nbsp; Administrasi Pemasaran</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/rpl');?>">&nbsp;&nbsp;&nbsp; Rekayasa Perangkat Lunak</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/multimedia');?>">&nbsp;&nbsp;&nbsp; Multimedia</a></li>
+								<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/tkj');?>">&nbsp;&nbsp;&nbsp; Teknik Komputer & Jaringan</a></li>
 								<li><div class="divider"></div></li>
 							  </ul>
 							</div>
 						</li>
 						</ul>
-                        <li><a class="waves-effect waves-blue" href="#dokumenunitkerja">Bimbingan Konseling</a></li>
-                        <li><a class="waves-effect waves-blue" href="#dokumenunitkerja">ICT</a></li>
-                        <li><a class="waves-effect waves-blue" href="#dokumenunitkerja">Lingkungan Hidup</a></li>
-                        <li><a class="waves-effect waves-blue" href="#dokumenunitkerja">Perpustakaan</a></li>
-                        <li><a class="waves-effect waves-blue" href="#dokumenunitkerja">Tata Usaha</a></li>
-                        <li><a class="waves-effect waves-blue" href="#dokumenunitkerja">Unit Produksi</a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/bimbingan_konseling');?>">Bimbingan Konseling</a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/ict');?>">ICT</a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/lingkungan_hidup');?>">Lingkungan Hidup</a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/perpustakaan');?>">Perpustakaan</a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/tata_usaha');?>">Tata Usaha</a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/unit_produksi');?>">Unit Produksi</a></li>
                         <li><div class="divider"></div></li>
                       </ul>
                     </div>
