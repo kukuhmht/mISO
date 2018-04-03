@@ -1,0 +1,77 @@
+  <div class="col s12">
+	<div class="col s12 m4">
+	  <div class="col s12">
+		<div class="card">
+			<div class="card-image">
+				<iframe
+				src="https://drive.google.com/file/d/0BxuiQ-cxi2TYY2FYNjl0TE44dmM/preview" width="100%" style="border: none;" allowfullscreen>
+				</iframe>
+				<a href="<?php echo base_url('unit_kerja/home/edit/'); ?>" class="btn-floating halfway-fab waves-effect waves-light green"><i class="material-icons">edit</i></a>
+				<a href="<?php echo base_url('unit_kerja/home/hapus/'); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus?')" class="btn-floating halfway-fab waves-effect waves-light red left"><i class="material-icons">delete</i></a>
+			</div>
+			<div class="card-content">
+			  <span class="activator grey-text text-darken-4"><b>nama_dokumen</b> <i class="material-icons right">more_vert</i> <br></span>
+			  <span class="grey-text"> <b>Nama<!--?php echo $row->nama ?--></b> - </span>
+			  <span class="  <div class="col s12">
+	<div class="col s12 m4">
+	  <div class="col s12">
+		<div class="card">
+			<div class="card-image">
+				<iframe
+				src="https://drive.google.com/file/d/0BxuiQ-cxi2TYY2FYNjl0TE44dmM/preview" width="100%" height="200px;" style="border: none;" allowfullscreen>
+				</iframe>
+				<a href="<?php echo base_url('unit_kerja/home/edit/'); ?>" class="btn-floating halfway-fab waves-effect waves-light green"><i class="material-icons">edit</i></a>
+				<a href="<?php echo base_url('unit_kerja/home/hapus/'); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus?')" class="btn-floating halfway-fab waves-effect waves-light red left"><i class="material-icons">delete</i></a>
+			</div>
+			<div class="card-content">
+			  <span class="activator grey-text text-darken-4"><b>nama_dokumen</b> <i class="material-icons right">more_vert</i> <br></span>
+			  <span class="grey-text"> <b>Nama<!--?php echo $row->nama ?--></b> - </span>
+			  <span class="grey-text"> <b>Hak Akses<!--?php echo $row->id_hakakses ?--></b> <br></span>
+			  
+			  <div class="chip right">
+				status_dokumen
+			  </div>
+			  
+			  <br><br><br>
+			  <a href="<?php echo base_url('unit_kerja/view_dokumen/'); ?>" class="waves-effect waves-light btn green"> view detail </a>
+			  <a href="<?php echo base_url('unit_kerja/kirim_dokumen/'); ?>" class="waves-effect waves-light btn red lighten-1 right"> kirim </a>
+			</div>
+			<div class="card-reveal">
+			  <span class="card-title grey-text text-darken-4">nama_dokumen<i class="material-icons right">close</i></span>
+
+				<table class="bordered">
+					<tbody>
+						<tr>
+							<td>
+								<span class="grey-text" style="font-size:12px;"> Di upload </span>
+							</td>
+							<td>
+								<span class="grey-text" style="font-size:12px;"> <b>tgl_upload</b> </span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="grey-text" style="font-size:12px;"> Di kirim </span>
+							</td>
+							<td>
+								<span class="grey-text" style="font-size:12px;"> <b>tgl_dikirim</b> </span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span class="grey-text" style="font-size:12px;"> Status </span>
+							</td>
+							<td>
+								<span class="grey-text" style="font-size:12px;"> <b>tgl_diterima</b> </span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			  
+			  <p>catatan</p>
+			</div>
+		</div>
+		</form>
+	  </div>
+	</div>
+  </div>
