@@ -1,6 +1,6 @@
 <!--
 ===============Author===============
--Kukuh M HidayaTullah (29 Maret 2018)
+-Kukuh M HidayaTullah (04 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -16,7 +16,7 @@ dan juga tanggal script di ubah terlebih dahulu
     <div class="nav-wrapper blue lighten-1">
       <div class="row">
         <div class="col s12">
-          <a href="<?php echo base_url('kepala_sekolah/home');?>" class="brand-logo" style="display:block;float:left;"><i class="material-icons">arrow_back</i> <?php echo $title ?> <b><?php echo $nama_dokumen ?></b></a>
+          <a href="<?php echo base_url('wmm/pedoman_mutu');?>" class="brand-logo" style="display:block;float:left;"><i class="material-icons">arrow_back</i> <?php echo $title ?></a>          
         </div>
       </div>
     </div>
@@ -24,7 +24,30 @@ dan juga tanggal script di ubah terlebih dahulu
 </div>
 <!--=======================END HEADER=======================-->
 <div class="row">
-  <form action="<?php echo base_url('kepala_sekolah/home/kirim_statusdokumen/'.$id_dokumen); ?>" method="post">
+	<div class="col s12">
+		<div class="card col s5 blue">
+		  <select class="browser-default">
+			<option value="" disabled selected>Pilih Unit Kerja</option>
+			<option value="1">Option 1</option>
+			<option value="2">Option 2</option>
+			<option value="3">Option 3</option>
+		  </select>
+		  <br>
+		  <center>
+			<a href="<?php echo base_url('wmm/pedoman_mutu/kirim_dokumen/'.$id_pedomanmutu);?>" class="btn green waves-effect waves-light"> Ya, Kirim </a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="<?php echo base_url('wmm/pedoman_mutu/edit/'.$id_pedomanmutu); ?>" class="btn red waves-effect waves-light"> Tidak, Edit </a>
+			<br>
+			<br>
+		  </center>
+		</div>
+		<div class="card blue col s6 right">
+			<h5 class="white-text"> <?php echo $nama_dokumen ?> </h5>
+		</div>
+	</div>
+</div>
+
+<div class="row">
 	<div class="col s12 m3">
 		<div class="card col s12">
 			<table class="bordered">
@@ -54,37 +77,13 @@ dan juga tanggal script di ubah terlebih dahulu
 						</td>
 					</tr>
 					<tr>
-						<td class="grey-text">Jenis POS</td>
-						<td>
-							<b style="font-size:12px;"><?php echo $jenis_pos ?></b>
-							<?php
-							if($jenis_pos == '')
-							{
-								echo "<span style='font-size:12px;'>tidak ada pos</span>";
-							}
-							?>
-						</td>
-					</tr>
-					<tr>
 						<td class="grey-text">Status dokumen</td>
 						<td>
-							<div class="col s12">
-								<select required id="id_statusdokumen" name="id_statusdokumen" class="browser-default validate">
-								  <?php foreach($ambil_statusdokumen as $row) { ?>
-									<option value="<?php echo $row->id_statusdokumen ?>" <?php echo ($row->id_statusdokumen == $id_statusdokumen ? 'selected' : '') ?>> <?php echo $row->status_dokumen ?> </option>
-								  <?php } ?>
-								</select>
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="grey-text">Status pengiriman</td>
-						<td>
-							<b style="font-size:12px;"><?php echo $status_pengiriman ?></b>
+							<b style="font-size:12px;"><?php echo $status_dokumen ?></b>
 							<?php
-							if($status_pengiriman == '')
+							if($status_dokumen == '')
 							{
-								echo "<span style='font-size:12px;'>tidak ada</span>";
+								echo "<span style='font-size:12px;'>tidak di ketahui</span>";
 							}
 							?>
 						</td>
@@ -101,6 +100,12 @@ dan juga tanggal script di ubah terlebih dahulu
 							?>
 						</td>
 					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="card col s12">
+			<table>
+				<tbody>
 					<tr>
 						<td>
 							<span class="grey-text"> Catatan Dokumen <br></span>
@@ -114,25 +119,7 @@ dan juga tanggal script di ubah terlebih dahulu
 						</td>
 					</tr>
 				</tbody>
-			</table>
-		</div>
-		<div class="card col s12">
-			<table>
-				<tbody>
-					<tr>
-						<td>
-							<span class="grey-text"> Pesan <br></span>
-							<div class="input-field col s12">
-							  <textarea id="pesan" name="pesan" class="materialize-textarea"><?php echo $pesan ?></textarea>
-							  <label for="pesan">Berikan Pesan Kepada WMM</label>
-							</div>
-						</td>
-					</tr>
-				</tbody>
 			</table>			
-		</div>
-		<div class="col s12 center">
-			<button class="btn blue waves-effect waves-light"> kirim status </button>
 		</div>
 	</div>
 
@@ -144,12 +131,21 @@ dan juga tanggal script di ubah terlebih dahulu
 			</iframe>
 		</div>
 	</div>
-  </form>
 </div>
 
-<!--=========================MODALS=========================-->
-<?php $this->load->view('layout/modals'); ?>
-<!--=======================END MODALS=======================-->
+
+
+<!--MODAL-->
+<div id="about_google_drive" class="modal modal-fixed-footer">
+	<div class="modal-content">
+	  <h4>Kenapa di Upload ke Google Drive?</h4>
+	  <p>A bunch of text</p>
+	</div>
+	<div class="modal-footer">
+	  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Ok, Paham</a>
+	</div>
+</div>
+<!--END MODAL-->
 <!--=========================FOOTER=========================-->
 <?php $this->load->view('layout/footer'); ?>
 <!--=======================END FOOTER=======================-->

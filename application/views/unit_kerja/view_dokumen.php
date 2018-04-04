@@ -158,17 +158,9 @@ dan juga tanggal script di ubah terlebih dahulu
 	</div>
 </div>
 
-<!--MODAL-->
-<div id="modal" class="modal modal-fixed-footer">
-	<div class="modal-content">
-	  <h4>Judul Modal</h4>
-	  <p>A bunch of text</p>
-	</div>
-	<div class="modal-footer">
-	  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat "><i class="material-icons">clear</i></a>
-	</div>
-</div>
-<!--END MODAL-->
+<!--=========================MODALS=========================-->
+<?php $this->load->view('layout/modals'); ?>
+<!--=======================END MODALS=======================-->
 <!--=========================FOOTER=========================-->
 <?php $this->load->view('layout/footer'); ?>
 <!--=======================END FOOTER=======================-->

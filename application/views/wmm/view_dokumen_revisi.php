@@ -17,7 +17,7 @@ dan juga tanggal script di ubah terlebih dahulu
     <div class="nav-wrapper blue lighten-1">
       <div class="row">
         <div class="col s12">
-          <a href="<?php echo base_url('wmm/home');?>" class="brand-logo" style="display:block;float:left;"><i class="material-icons">arrow_back</i> <?php echo $title ?> <b><?php echo $nama_dokumen ?></b></a>
+          <a href="<?php echo base_url('wmm/dokumen/dokumen_revisi');?>" class="brand-logo" style="display:block;float:left;"><i class="material-icons">arrow_back</i> <?php echo $title ?> <b><?php echo $nama_dokumen ?></b></a>
         </div>
       </div>
     </div>

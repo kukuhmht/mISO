@@ -66,10 +66,6 @@ dan juga tanggal script di ubah terlebih dahulu
  <div class="section">
     <div class="row">
     <div class="col s12">
-	<br>
-	<br>
-	<br>
-	<br>
 	  <div class="col s12 center">
 		<img class="responsive-img center" src="<?php echo base_url('assets/images/drive_logo.png'); ?>">
 	  </div>
@@ -78,10 +74,6 @@ dan juga tanggal script di ubah terlebih dahulu
 		<p class="light center-align" style="font-size:25px;font-family:Calibri Light (Headings);font-weight:250">
 			Tidak perlu repot lagi mengupload dokumen, mISO menggunakan Google Drive sebagai media pentimpanan dokumen. Anda bisa menyimpan nya di akun Google Drive pribadi Anda atau mengupload ke folder yang telah di sediakan oleh mISO. yang perlu Anda lakukan hanyalah menyalin link yang dapat di bagikan.
 		</p>
-		<br>
-		<br>
-		<br>
-		<br>
 	  </div>
     </div>
   </div>

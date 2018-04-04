@@ -76,17 +76,9 @@ dan juga tanggal script di ubah terlebih dahulu
 </form>
 </div>
 
-<!--MODAL-->
-<div id="about_google_drive" class="modal modal-fixed-footer">
-	<div class="modal-content">
-	  <h4>Kenapa di Upload ke Google Drive?</h4>
-	  <p>A bunch of text</p>
-	</div>
-	<div class="modal-footer">
-	  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Ok, Paham</a>
-	</div>
-</div>
-<!--END MODAL-->
+<!--=========================MODALS=========================-->
+<?php $this->load->view('layout/modals'); ?>
+<!--=======================END MODALS=======================-->
 <!--=========================FOOTER=========================-->
 <?php $this->load->view('layout/footer'); ?>
 <!--=======================END FOOTER=======================-->

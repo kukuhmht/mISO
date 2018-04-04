@@ -3,6 +3,7 @@
 -Kukuh M HidayaTullah (29 Maret 2018)
 -Kukuh M HidayaTullah (01 April 2018)
 -Kukuh M HidayaTullah (03 April 2018)
+-Kukuh M HidayaTullah (04 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -55,7 +56,8 @@ dan juga tanggal script di ubah terlebih dahulu
             <i class="large material-icons">important_devices</i>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="#!" class="dropdown-button btn-large blue" data-activates="upload_dokumen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UPLOAD &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+			<li><a href="<?php echo base_url('wmm/upload_dokumen');?>" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Upload Dokumen"><i class="material-icons" style="font-size:30px;">&nbsp; file_upload &nbsp;</i></a></li>
+			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/pedoman_mutu'); ?>">Pedoman Mutu</a></li>
 			<li><a class="waves-effect waves-light blue" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/home'); ?>">Dokumen WMM</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/unit_kerja'); ?>">Dokumen Unit Kerja</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/dokumen_revisi'); ?>">Dokumen Revisi</a></li>
@@ -342,43 +344,10 @@ dan juga tanggal script di ubah terlebih dahulu
   </div>
   <?php } ?>
 </div>
- 
-<!-- MODAL -->
-  <div id="pedoman_mutu" class="modal">
-    <div class="modal-content">
-      <h4>Pedoman Mutu <a href="#!" class="right modal-action modal-close btn-flat"><i class="material-icons">clear</i></a></h4>
-      <p>
-		<iframe src="https://drive.google.com/dokumen/d/0BxuiQ-cxi2TYY2FYNjl0TE44dmM/preview" width="100%" height="375px" style="border: none;" allowfullscreen></iframe>
-	  </p>
-    </div>
-  </div>
-  
-  <div id="download" class="modal">
-    <div class="modal-content">
-      <h4>Cara Download</h4>
-      <p>untuk mengunduh file, silahkan klik tombol <i class="material-icons">open_in_new</i> di pojok kanan atas preview file tersebut.</p>
-      <p>jika sudah terbuka di tab baru, lalu pilih <i class="material-icons">file_download</i> di pojok kanan atas</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Oke, Paham</a>
-    </div>
-  </div>
-  
-  <div id="notifikasi" class="modal">
-    <div class="modal-content">
-      <h4>Notifikasi <a href="#!" class="right modal-action modal-close btn-flat"><i class="material-icons">clear</i></a></h4>
-      <table class="bordered">
-		<tbody>
-			<tr>
-				<td> Wakil Management Mutu nama </td>
-				<td> nama_notif </td>
-				<td> tgl_notif </td>
-			</tr>
-		</tbody>
-	  </table>
-    </div>
-  </div>
-<!-- END MODAL -->
+
+<!--=========================MODALS=========================-->
+<?php $this->load->view('layout/modals'); ?>
+<!--=======================END MODALS=======================-->
 <!--=========================FOOTER=========================-->
 <?php $this->load->view('layout/footer'); ?>
 <!--=======================END FOOTER=======================-->

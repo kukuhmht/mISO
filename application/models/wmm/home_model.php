@@ -53,7 +53,7 @@ class Home_model extends CI_Model {
 		  JOIN jenis_pos j USING (id_jenispos)
 		  JOIN status_pengiriman USING (id_statuspengiriman)
 		  JOIN status_dokumen s USING (id_statusdokumen)
-		WHERE id_statuspengiriman = "1"
+		WHERE id_statuspengiriman = "1" AND hak_akses = "Unit Kerja"
 		ORDER BY tgl_dikirim DESC
 		');
 	}
@@ -85,6 +85,27 @@ class Home_model extends CI_Model {
 		  JOIN USER u USING (id_user)
 		  JOIN hak_akses h USING (id_hakakses)
 		WHERE tgl_diusulkan
+		');
+	}
+	
+	// menampilkan data dokumen semua Unit Kerja
+	function list_dokumen_unit($nama_unit) {
+		return $this->db->query('
+		SELECT
+		  d.*,
+		  n.nama,
+		  h.hak_akses,
+		  j.jenis_pos,
+		  s.status_dokumen
+		FROM
+		  dokumen d
+		  JOIN USER n USING (id_user)
+		  JOIN hak_akses h USING (id_hakakses)
+		  JOIN jenis_pos j USING (id_jenispos)
+		  JOIN status_pengiriman USING (id_statuspengiriman)
+		  JOIN status_dokumen s USING (id_statusdokumen)
+		WHERE id_statuspengiriman = "1" AND hak_akses = "Unit Kerja" AND nama = "'.$nama_unit.'"
+		ORDER BY tgl_dikirim DESC
 		');
 	}
 	

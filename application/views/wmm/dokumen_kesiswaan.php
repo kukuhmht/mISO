@@ -1,8 +1,5 @@
 <!--
 ===============Author===============
--Kukuh M HidayaTullah (29 Maret 2018)
--Kukuh M HidayaTullah (01 April 2018)
--Kukuh M HidayaTullah (03 April 2018)
 -Kukuh M HidayaTullah (04 April 2018)
 
 *ket:
@@ -19,7 +16,7 @@ dan juga tanggal script di ubah terlebih dahulu
     <div class="nav-wrapper blue lighten-1">
       <div class="row">
         <div class="col s12">
-          <a href="<?php echo base_url('wmm/home');?>" class="brand-logo" style="display:block;float:left;"><?php echo $title ?></a>
+          <a href="<?php echo base_url('wmm/dokumen/unit_kerja');?>" class="brand-logo" style="display:block;float:left;"><i class="material-icons">arrow_back</i><?php echo $title ?></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             
             <li>
@@ -56,8 +53,7 @@ dan juga tanggal script di ubah terlebih dahulu
             <i class="large material-icons">important_devices</i>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a class="waves-effect waves-light modal-trigger" href="#unitkerja" style="font-size:20px;">Daftar Unit Kerja</a></li>
-			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/pedoman_mutu'); ?>">Pedoman Mutu</a></li>
+			<li><a class="waves-effect waves-light btn-large blue modal-trigger" href="#unitkerja">Daftar Unit Kerja</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/home'); ?>">Dokumen WMM</a></li>
 			<li><a class="waves-effect waves-light blue" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/unit_kerja'); ?>">Dokumen Unit Kerja</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/dokumen_revisi'); ?>">Dokumen Revisi</a></li>
@@ -104,8 +100,7 @@ dan juga tanggal script di ubah terlebih dahulu
                     <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">folder_special</i>Dokumen <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                       <ul>
-                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/pedoman_mutu');?>"><i class="material-icons">description</i>Pedoman Mutu</a></li>
-                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/home');?>"><i class="material-icons">note</i>Dokumen WMM</a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/home');?>"><i class="material-icons">insert_drive_file</i>Dokumen WMM</a></li>
                         <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/unit_kerja');?>"><i class="material-icons">insert_drive_file</i>Dokumen Unit Kerja</a></li>
                         <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/dokumen_revisi');?>"><i class="material-icons">autorenew</i>Revisi Dokumen Unit Kerja</a></li>
                         <li><div class="divider"></div></li>
@@ -220,7 +215,7 @@ dan juga tanggal script di ubah terlebih dahulu
 <!--=======================END HEADER=======================-->
 <div class="row" style="margin-top:-25px;">
   <div class="col s12">
-	<?php foreach($list_dokumen_unit_kerja as $row) { ?>
+	<?php foreach($list_dokumen_kesiswaan as $row) { ?>
 	<div class="col s12 m4">
 	  <div class="col s12">
 		<div class="card hoverable">
@@ -316,7 +311,7 @@ dan juga tanggal script di ubah terlebih dahulu
 	<?php } ?>
   </div>
   
-  <?php if(count($list_dokumen_unit_kerja) == 0) { ?>
+  <?php if(count($list_dokumen_kesiswaan) == 0) { ?>
   <div class="col s12 center">
     <br>
     <br>
@@ -324,7 +319,7 @@ dan juga tanggal script di ubah terlebih dahulu
     <br>
     <br>
       <i class="material-icons large blue-text">folder</i><br>
-      <h5>Belum ada Dokumen yang di Upload oleh Unit Kerja</h5><br>
+      <h5>Belum ada Dokumen yang di Upload oleh Unit Kerja Bidang Kesiswaan</h5><br>
     <br>
     <br>
     <br>

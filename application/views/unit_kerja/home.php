@@ -436,31 +436,9 @@ dan juga tanggal script di ubah terlebih dahulu
 </div>	
  </div>
  
-<!-- MODAL -->
-  <div id="pedoman_mutu" class="modal">
-    <div class="modal-content">
-      <h4>Pedoman Mutu <a href="#!" class="right modal-action modal-close btn-flat"><i class="material-icons">clear</i></a></h4>
-      <p>
-		<iframe src="https://drive.google.com/dokumen/d/0BxuiQ-cxi2TYY2FYNjl0TE44dmM/preview" width="100%" height="375px" style="border: none;" allowfullscreen></iframe>
-	  </p>
-    </div>
-  </div>
-  
-  <div id="notifikasi" class="modal">
-    <div class="modal-content">
-      <h4>Notifikasi <a href="#!" class="right modal-action modal-close btn-flat"><i class="material-icons">clear</i></a></h4>
-      <table class="bordered">
-		<tbody>
-			<tr>
-				<td> Wakil Management Mutu nama </td>
-				<td> nama_notif </td>
-				<td> tgl_notif </td>
-			</tr>
-		</tbody>
-	  </table>
-    </div>
-  </div>
-<!-- END MODAL -->
+<!--=========================MODALS=========================-->
+<?php $this->load->view('layout/modals'); ?>
+<!--=======================END MODALS=======================-->
 <!--=========================FOOTER=========================-->
 <?php $this->load->view('layout/footer'); ?>
 <!--=======================END FOOTER=======================-->

@@ -3,6 +3,7 @@
 -Kukuh M HidayaTullah (29 Maret 2018)
 -Kukuh M HidayaTullah (01 April 2018)
 -Kukuh M HidayaTullah (03 April 2018)
+-Kukuh M HidayaTullah (04 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -55,7 +56,7 @@ dan juga tanggal script di ubah terlebih dahulu
             <i class="large material-icons">important_devices</i>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-		<!--<li><a href="#!" class="dropdown-button" data-activates="upload_dokumen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UPLOAD <i class="material-icons right">arrow_drop_down</i></a></li> -->
+			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/pedoman_mutu'); ?>">Pedoman Mutu</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/home'); ?>">Dokumen WMM</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/unit_kerja'); ?>">Dokumen Unit Kerja</a></li>
 			<li><a class="waves-effect waves-light blue" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/dokumen_revisi'); ?>">Dokumen Revisi</a></li>
@@ -102,7 +103,8 @@ dan juga tanggal script di ubah terlebih dahulu
                     <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">folder_special</i>Dokumen <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                       <ul>
-                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/home');?>"><i class="material-icons">insert_drive_file</i>Dokumen WMM</a></li>
+						<li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/pedoman_mutu');?>"><i class="material-icons">description</i>Pedoman Mutu</a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/home');?>"><i class="material-icons">note</i>Dokumen WMM</a></li>
                         <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/unit_kerja');?>"><i class="material-icons">insert_drive_file</i>Dokumen Unit Kerja</a></li>
                         <li><a class="waves-effect waves-blue" href="<?php echo base_url('wmm/dokumen/dokumen_revisi');?>"><i class="material-icons">autorenew</i>Revisi Dokumen Unit Kerja</a></li>
                         <li><div class="divider"></div></li>
@@ -221,16 +223,6 @@ dan juga tanggal script di ubah terlebih dahulu
 				<iframe
 				src="<?php echo $row->dokumen_path ?>" width="100%" height="200px" style="border: none;" allowfullscreen>
 				</iframe>
-				<?php if(empty($row->tgl_dikirim)==true) { ?>
-				  <a href="<?php echo base_url('wmm/upload_dokumen/edit/'.$row->id_dokumen); ?>" class="btn-floating halfway-fab waves-effect waves-light green"><i class="material-icons">edit</i></a>
-				<?php }else { ?>
-				  <a href="#disabled_edit" class="tooltipped btn-floating halfway-fab waves-effect waves-light green" data-position="left" data-delay="50" data-tooltip="Dokumen terkirim, tidak dapat di edit"><i class="material-icons">edit</i></a>
-				<?php } ?>
-				<?php if(empty($row->tgl_dikirim)==true) { ?>
-				  <a href="<?php echo base_url('wmm/upload_dokumen/hapus/'.$row->id_dokumen); ?>" onclick="return confirm('Apakah anda yakin ingin menghapus?')" class="btn-floating halfway-fab waves-effect waves-light red left"><i class="material-icons">delete</i></a>
-				<?php }else { ?>
-				  <a href="#disabled_delete" class="tooltipped btn-floating halfway-fab waves-effect waves-light red left" data-position="right" data-delay="50" data-tooltip="Dokumen terkirim, tidak dapat di hapus"><i class="material-icons">delete</i></a>
-				<?php } ?>
 			</div>
 			<div class="card-content">
 			  <span class="activator grey-text text-darken-4"><b><?php echo $row->nama_dokumen ?></b> <i class="material-icons right">more_vert</i> <br></span>
@@ -258,12 +250,8 @@ dan juga tanggal script di ubah terlebih dahulu
 			  </div>
 			  
 			  <br><br><br>
-			  <a href="<?php echo base_url('wmm/home/view_dokumen/'.$row->id_dokumen); ?>" class="waves-effect waves-light btn green"> view detail </a>
-			 <?php if(empty($row->tgl_dikirim)==true) { ?>
-			  <a href="<?php echo base_url('wmm/home/view_kirim_dokumen/'.$row->id_dokumen); ?>" class="waves-effect waves-light btn red lighten-1 right"> kirim </a>
-			 <?php }else { ?>
-			  <span class="green-text right"> <i class="material-icons">done_all</i> terkirim </span>
-			 <?php } ?>
+			  <a href="<?php echo base_url('wmm/home/view_dokumen_revisi/'.$row->id_dokumen); ?>" class="waves-effect waves-light btn green"> view detail </a>
+			  <a href="#download" class="waves-effect waves-light btn red right modal-trigger"> <i class="material-icons">file_download</i> </a>
 			</div>
 			<div class="card-reveal">
 			  <span class="card-title grey-text text-darken-4"><?php echo $row->nama_dokumen ?><i class="material-icons right">close</i></span>
@@ -343,43 +331,10 @@ dan juga tanggal script di ubah terlebih dahulu
   </div>
   <?php } ?>
 </div>
- 
-<!-- MODAL -->
-  <div id="pedoman_mutu" class="modal">
-    <div class="modal-content">
-      <h4>Pedoman Mutu <a href="#!" class="right modal-action modal-close btn-flat"><i class="material-icons">clear</i></a></h4>
-      <p>
-		<iframe src="https://drive.google.com/dokumen/d/0BxuiQ-cxi2TYY2FYNjl0TE44dmM/preview" width="100%" height="375px" style="border: none;" allowfullscreen></iframe>
-	  </p>
-    </div>
-  </div>
-  
-  <div id="download" class="modal">
-    <div class="modal-content">
-      <h4>Cara Download</h4>
-      <p>untuk mengunduh file, silahkan klik tombol <i class="material-icons">open_in_new</i> di pojok kanan atas preview file tersebut.</p>
-      <p>jika sudah terbuka di tab baru, lalu pilih <i class="material-icons">file_download</i> di pojok kanan atas</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Oke, Paham</a>
-    </div>
-  </div>
-  
-  <div id="notifikasi" class="modal">
-    <div class="modal-content">
-      <h4>Notifikasi <a href="#!" class="right modal-action modal-close btn-flat"><i class="material-icons">clear</i></a></h4>
-      <table class="bordered">
-		<tbody>
-			<tr>
-				<td> Wakil Management Mutu nama </td>
-				<td> nama_notif </td>
-				<td> tgl_notif </td>
-			</tr>
-		</tbody>
-	  </table>
-    </div>
-  </div>
-<!-- END MODAL -->
+
+<!--=========================MODALS=========================-->
+<?php $this->load->view('layout/modals'); ?>
+<!--=======================END MODALS=======================-->
 <!--=========================FOOTER=========================-->
 <?php $this->load->view('layout/footer'); ?>
 <!--=======================END FOOTER=======================-->

@@ -260,33 +260,9 @@ dan juga tanggal script di ubah terlebih dahulu
 </div>
 
  
-<!-- MODAL -->
-  <div id="download" class="modal">
-    <div class="modal-content">
-      <h4>Cara Download</h4>
-      <p>untuk mengunduh file, silahkan klik tombol <i class="material-icons">open_in_new</i> di pojok kanan atas preview file tersebut.</p>
-      <p>jika sudah terbuka di tab baru, lalu pilih <i class="material-icons">file_download</i> di pojok kanan atas</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-light btn-flat">Oke, Paham</a>
-    </div>
-  </div>
-  
-  <div id="notifikasi" class="modal">
-    <div class="modal-content">
-      <h4>Notifikasi <a href="#!" class="right modal-action modal-close btn-flat"><i class="material-icons">clear</i></a></h4>
-      <table class="bordered">
-		<tbody>
-			<tr>
-				<td> Wakil Management Mutu nama </td>
-				<td> nama_notif </td>
-				<td> tgl_notif </td>
-			</tr>
-		</tbody>
-	  </table>
-    </div>
-  </div>
-<!-- END MODAL -->
+<!--=========================MODALS=========================-->
+<?php $this->load->view('layout/modals'); ?>
+<!--=======================END MODALS=======================-->
 <!--=========================FOOTER=========================-->
 <?php $this->load->view('layout/footer'); ?>
 <!--=======================END FOOTER=======================-->
