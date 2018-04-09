@@ -3,7 +3,7 @@
     <div class="nav-wrapper blue lighten-1">
       <div class="row">
         <div class="col s12">
-          <a href="" class="brand-logo" style="display:block;float:left;font-family:Calibri Light (Headings);font-weight:300"><?php echo $title ?></a>          
+          <img src="<?php echo base_url('assets/images/logo_v1.png');?>" class="responsive-img" style="margin-top:10px;" />
         </div>
       </div>
     </div>

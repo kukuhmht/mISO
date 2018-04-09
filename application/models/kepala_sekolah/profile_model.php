@@ -1,6 +1,7 @@
 <!--
 ===============Author===============
 -Kukuh M HidayaTullah (29 Maret 2018)
+-Kukuh M HidayaTullah (07 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -19,6 +20,10 @@ class Profile_model extends CI_Model {
 	public function view_profile($id_user){
 		$d	= $this->db->get_where('user',array('id_user'=>$id_user))->result_array();
 		return $d;
+	}
+	
+	public function update($table,$data,$where){
+		return $this->db->update($table,$data,$where);
 	}
 }
 ?>

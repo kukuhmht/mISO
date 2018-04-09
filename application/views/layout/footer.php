@@ -39,6 +39,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js'></script>
 
     <script  src="<?php echo base_url('assets/js/custom.js');?>"></script>
+	<script  src="<?php echo base_url('assets/multiple_select/dual-listbox.js');?>"></script>
 <!--<script  src="<?php echo base_url('assets/js/materialize.min.js');?>"></script> -->
 
 <script>
@@ -46,7 +47,7 @@
 		$('.sidenav').sidenav();
 		
 		$(".button-collapse").sideNav();
-		
+			
 		$('select').material_select();
 		
 		Materialize.updateTextFields();
@@ -67,7 +68,74 @@
 		});
 		
 		$('.parallax').parallax();
+		
+		DualListbox('.selectDemo',{
+		  addEvent: function(value) {
+			console.log(value);
+		  },
+		  removeEvent: function(value) {
+			console.log(value);
+		  },
+		  availableTitle: 'Available options',
+		  selectedTitle: 'Selected options',
+		  addButtonText: 'add',
+		  removeButtonText: 'remove',
+		  addAllButtonText: 'add all',
+		  removeAllButtonText: 'remove all',
+		  searchPlaceholder: 'search'
+		});
 	});
+</script>
+
+<script>
+/*button select all kirim ke unit kerja
+$('#select-all').click(function () {
+	var all = $('input.select-all')[0];
+	all.checked = !all.checked
+	var checked = all.checked;
+	$('input.select-item').each(function (index,item) {
+		item.checked = !item.checked;
+	});
+	checkSelected();
+});
+
+//button select invert
+$("#select-invert").click(function () {
+	$("input.select-item").each(function (index,item) {
+		item.checked = !item.checked;
+	});
+	checkSelected();
+});
+
+//button get selected
+$("#selected").click(function () {
+	var items=[];
+	$("input.select-item:checked:checked").each(function (index,item) {
+		items[index] = item.value;
+	});
+	if (items.length < 1) {
+		alert("Tidak ada Unit Kerja yang dipilih");
+	}else {
+		var values = items.join(',');
+		console.log(items);
+
+		$.ajax({
+			type:       "POST",
+			url:        "{{ url('pedoman_mutu/kirim_dokumen/'<?php$id_pedomanmutu?>) }}",
+			data:       { id_siswa: items},
+			success:    function() {
+							location.reload();
+						},
+
+		});
+	}
+});
+*/
+// $( "input[type=checkbox]" ).on( "click", countChecked );
+$("#select-all").click(function() {
+
+$(".second").prop("checked", $("#select-all").prop("checked"))
+});
 </script>
 
 <script>

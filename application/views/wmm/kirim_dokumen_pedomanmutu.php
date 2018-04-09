@@ -23,30 +23,46 @@ dan juga tanggal script di ubah terlebih dahulu
   </nav>
 </div>
 <!--=======================END HEADER=======================-->
-<div class="row">
+<div class="row" style="margin-bottom:-14px;">
+  <form action="<?php echo base_url('wmm/pedoman_mutu/kirim_dokumen/'.$id_pedomanmutu);?>" method="post">
 	<div class="col s12">
-		<div class="card col s5 blue">
-		  <select class="browser-default">
-			<option value="" disabled selected>Pilih Unit Kerja</option>
-			<option value="1">Option 1</option>
-			<option value="2">Option 2</option>
-			<option value="3">Option 3</option>
-		  </select>
+		<div class="col s6">
+			<ul class="collapsible popout" data-collapsible="accordion">
+				<li>
+				  <div class="collapsible-header"><i class="material-icons">send</i>Kirim ke Unit Kerja</div>
+				  <div class="collapsible-body">
+					<input type="checkbox" id="select-all" />
+					<label class="black-text" for="select-all">Pilih Semua Unit</label>
+				  </div>
+				   <?php foreach($ambil_unit as $key => $row) { ?>
+				  <div class="collapsible-body">
+					<input class="second" value="<?php echo $row->id_unit ?>" name="id_unit" type="checkbox" id="selected<?php echo $key ?>" />
+					<label for="selected<?php echo $key ?>"><?php echo $row->nama_unit ?></label>
+				  </div>
+				   <?php } ?>
+				</li>
+			</ul>
+		</div>
+		<div class="card col s5 blue right">
+		  <h5 class="center"> Apakah Sudah Siap di Kirim? </h5>
 		  <br>
 		  <center>
-			<a href="<?php echo base_url('wmm/pedoman_mutu/kirim_dokumen/'.$id_pedomanmutu);?>" class="btn green waves-effect waves-light"> Ya, Kirim </a>
+			<button type="submit" class="btn green waves-effect waves-light"> Ya, Kirim </button>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<a href="<?php echo base_url('wmm/pedoman_mutu/edit/'.$id_pedomanmutu); ?>" class="btn red waves-effect waves-light"> Tidak, Edit </a>
 			<br>
 			<br>
 		  </center>
 		</div>
-		<div class="card blue col s6 right">
+	</div>
+  </form>
+	<div class="col s12">
+		<div class="card blue col s12 center">
 			<h5 class="white-text"> <?php echo $nama_dokumen ?> </h5>
 		</div>
 	</div>
 </div>
-
+<span class="red-text" style="margin-left:10px;">*cek dokumen terlebih dahulu</span>
 <div class="row">
 	<div class="col s12 m3">
 		<div class="card col s12">

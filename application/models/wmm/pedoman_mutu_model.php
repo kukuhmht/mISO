@@ -20,13 +20,20 @@ class Pedoman_mutu_model extends CI_Model {
 		SELECT
 		  d.*,
 		  n.nama,
+		  u.nama_unit,
 		  h.hak_akses
 		FROM
 		  pedoman_mutu d
-		  JOIN USER n USING (id_user)
+		  JOIN penerima_pedomanmutu p USING (id_pedomanmutu)
+		  JOIN unit_kerja u USING (id_unit)
+		  JOIN USER n USING (id_unit)
 		  JOIN hak_akses h USING (id_hakakses)
 		ORDER BY tgl_upload DESC
 		');
+	}
+	
+	public function ambil_unit() {
+		return $this->db->get('unit_kerja');
 	}
 	
 	// Lihat Dokumen Pedoman Mutu (mengambil ID dokumen dan menampilkan data tersebut)
@@ -34,12 +41,17 @@ class Pedoman_mutu_model extends CI_Model {
 		$d	= $this->db->query('
 		SELECT
 		  d.*,
-		  u.nama,
-		  u.id_hakakses
+		  n.nama,
+		  u.nama_unit,
+		  h.hak_akses
 		FROM
 		  pedoman_mutu d
-		  JOIN USER u USING(id_user)
+		  JOIN penerima_pedomanmutu p USING (id_pedomanmutu)
+		  JOIN unit_kerja u USING (id_unit)
+		  JOIN USER n USING (id_unit)
+		  JOIN hak_akses h USING (id_hakakses)
 		WHERE id_pedomanmutu = "'.$id_pedomanmutu.'"
+		ORDER BY tgl_upload DESC
 		')->result_array();
 		return $d;
 	}

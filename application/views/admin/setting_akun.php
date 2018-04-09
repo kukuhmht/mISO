@@ -53,7 +53,7 @@ dan juga tanggal script di ubah terlebih dahulu
             <i class="large material-icons">important_devices</i>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a class="waves-effect waves-light btn btn-large animated tada blue modal-trigger" href="#pedoman_mutu"><i class="material-icons left">book</i>Pedoman Mutu</a></li>
+			<li><a class="waves-effect waves-light btn btn-large animated tada blue dropdown-button" data-activates="tambah_akun"><i class="material-icons left">add_circle</i>Buat Akun</a></li>
           </ul>
         </div>
         <div class="nav-content">
@@ -68,7 +68,7 @@ dan juga tanggal script di ubah terlebih dahulu
         <li class="sidenav-header blue lighten-2">
           <div class="row">
             <div class="col s4">
-                <img src="https://gravatar.com/avatar/961997eb7fd5c22b3e12fb3c8ca14e11?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" width="48px" height="48px" alt="" class="circle responsive-img valign profile-image">
+                <img src="<?php echo base_url('assets/images/pelog5.jpg');?>" width="48px" height="48px" alt="" class="circle responsive-img valign profile-image">
             </div>
             <div class="col s8">
                 <a class="btn-flat dropdown-button waves-effect waves-light white-text" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nama');?>  &nbsp;&nbsp;&nbsp;<i class="material-icons right">arrow_drop_down</i></a>
@@ -85,25 +85,14 @@ dan juga tanggal script di ubah terlebih dahulu
               <li class="white">
                 <ul class="collapsible collapsible-accordion">
                   <li>
-                    <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">folder_special</i>Dokumen <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                    <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">person</i>Buat Akun <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
                     <div class="collapsible-body">
                       <ul>
-                        <li><a class="waves-effect waves-blue" href="#dokumen_terkirim"><i class="material-icons">fullscreen</i>Dokumen Terkirim<span class="new badge right green lighten-1" data-badge-caption='terkirim'></span></a></li>
-                        <li><a class="waves-effect waves-blue" href="#dokumen_belum_terkirim"><i class="material-icons">swap_horiz</i>Dokumen Belum Terkirim<span class="new badge right red" data-badge-caption="belum terkirim"></span></a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('superadmin/setting_akun/add_unitkerja');?>"> Unit Kerja </a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('superadmin/setting_akun/add_wmm');?>"> Wakil Management Mutu </a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('superadmin/setting_akun/add_kepalasekolah');?>"> Kepala Sekolah </a></li>
+                        <li><a class="waves-effect waves-blue" href="<?php echo base_url('superadmin/setting_akun/add_admin');?>"> Admin </a></li>
                         <li><div class="divider"></div></li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <li class="white">
-                <ul class="collapsible collapsible-accordion">
-                  <li>
-                    <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">folder_open</i>Dokumen Revisi <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
-                    <div class="collapsible-body">
-                      <ul>
-						<li><a class="waves-effect waves-blue" href="#dokumen_revisi_terkirim"><i class="material-icons">fullscreen</i>Dokumen Terkirim<span class="new badge right green lighten-1" data-badge-caption="terkirim"></span></a></li>
-                        <li><a class="waves-effect waves-blue" href="#dokumen_revisi_belum_terkirim"><i class="material-icons">swap_horiz</i>Dokumen Belum Terkirim<span class="new badge right red" data-badge-caption="belum terkirim"></span></a></li>
                       </ul>
                     </div>
                   </li>
@@ -143,10 +132,12 @@ dan juga tanggal script di ubah terlebih dahulu
 
       
       <!-- Dropdown Structure -->
-      <ul id="upload_dokumen" class="dropdown-content">
-        <li><a class="blue-text" href="<?php echo base_url('superadmin/upload_dokumen');?>"><i class="material-icons">create_new_folder</i>Dokumen Baru</a></li>
+      <ul id="tambah_akun" class="dropdown-content">
+        <li><a class="blue-text" href="<?php echo base_url('superadmin/setting_akun/add_unitkerja');?>">Unit Kerja</a></li>
+        <li><a class="blue-text" href="<?php echo base_url('superadmin/setting_akun/add_wmm');?>">WMM</a></li>
+        <li><a class="blue-text" href="<?php echo base_url('superadmin/setting_akun/add_kepalasekolah');?>">Kepala Sekolah</a></li>
         <li class="divider"></li>
-        <li><a class="blue-text" href="<?php echo base_url('superadmin/upload_dokumen_revisi');?>"><i class="material-icons">unarchive</i>Dokumen Revisi</a></li>
+        <li><a class="blue-text" href="<?php echo base_url('superadmin/setting_akun/add_admin');?>">Admin</a></li>
       </ul>
 	  
 	  <ul id="profile" class="dropdown-content">
@@ -167,29 +158,42 @@ dan juga tanggal script di ubah terlebih dahulu
 		<table class="striped bordered">
 			<thead>
 				<tr>
-					<th> Nama </th>
+					<th> Nama Unit </th>
 					<th> Username </th>
 					<th> Password </th>
-					<th> Hak Akses </th>
 					<th> </th>
 				</tr>
 			</thead>
 			<tbody>
+		  <?php foreach($akun_unitkerja as $row) { ?>
 				<tr>
-					<td> nama </td>
-					<td> username </td>
-					<td> password </td>
-					<td> hak_akses </td>
+					<td> <?php echo $row->nama ?> </td>
+					<td> <?php echo $row->username ?> </td>
+					<td> <?php echo $row->password ?> </td>
 					<td> 
-						<a href="<?php echo base_url('superadmin/setting_akun/edit');?>"><i class="material-icons">edit</i></a>
+						<a href="<?php echo base_url('superadmin/setting_akun/edit_unitkerja/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="edit <?php echo $row->nama ?> ?"><i class="material-icons">edit</i></a>
 						<br>
-						<a href="<?php echo base_url('superadmin/setting_akun/hapus');?>"><i class="material-icons">delete</i></a>
+						<a href="<?php echo base_url('superadmin/setting_akun/hapus/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="hapus <?php echo $row->nama ?> ?" onclick="return confirm('Apakah anda yakin ingin menghapus akun ini?')"><i class="material-icons">delete</i></a>
 					</td>
 				</tr>
+		  <?php } ?>
 			</tbody>
 		</table>
 	  </div>
 	</div>
+	<?php if(count($akun_unitkerja) == 0) { ?>
+	<div class="col s12 center">
+		<br>
+		  <i class="material-icons large blue-text">person</i><br>
+		  <h5>Belum ada Akun Unit Kerja</h5><br>
+		  <span> <a href="<?php echo base_url('superadmin/setting_akun/add_unitkerja')?>" class="btn-large blue waves-effect waves-light">buat akun</a> </span>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+	</div>
+	<?php } ?>
 	</div>
  </div>
  
@@ -203,26 +207,39 @@ dan juga tanggal script di ubah terlebih dahulu
 					<th> Nama </th>
 					<th> Username </th>
 					<th> Password </th>
-					<th> Hak Akses </th>
 					<th> </th>
 				</tr>
 			</thead>
 			<tbody>
+		  <?php foreach($akun_wmm as $row) { ?>
 				<tr>
-					<td> nama </td>
-					<td> username </td>
-					<td> password </td>
-					<td> hak_akses </td>
-					<td> 
-						<a href="<?php echo base_url('superadmin/setting_akun/edit');?>"><i class="material-icons">edit</i></a>
+					<td> <?php echo $row->nama ?> </td>
+					<td> <?php echo $row->username ?> </td>
+					<td> <?php echo $row->password ?> </td>
+					<td>
+						<a href="<?php echo base_url('superadmin/setting_akun/edit_wmm/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="edit <?php echo $row->nama ?> ?"><i class="material-icons">edit</i></a>
 						<br>
-						<a href="<?php echo base_url('superadmin/setting_akun/hapus');?>"><i class="material-icons">delete</i></a>
+						<a href="<?php echo base_url('superadmin/setting_akun/hapus/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="hapus <?php echo $row->nama ?> ?" onclick="return confirm('Apakah anda yakin ingin menghapus akun ini?')"><i class="material-icons">delete</i></a>
 					</td>
 				</tr>
+		  <?php } ?>
 			</tbody>
 		</table>
 	  </div>
 	</div>
+	<?php if(count($akun_wmm) == 0) { ?>
+	<div class="col s12 center">
+		<br>
+		  <i class="material-icons large blue-text">person</i><br>
+		  <h5>Belum ada Akun Wakil Management Mutu</h5><br>
+		  <span> <a href="<?php echo base_url('superadmin/setting_akun/add_wmm')?>" class="btn-large blue waves-effect waves-light">buat akun</a> </span>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+	</div>
+	<?php } ?>
 	</div>
  </div>
  
@@ -236,26 +253,39 @@ dan juga tanggal script di ubah terlebih dahulu
 					<th> Nama </th>
 					<th> Username </th>
 					<th> Password </th>
-					<th> Hak Akses </th>
 					<th> </th>
 				</tr>
 			</thead>
 			<tbody>
+		  <?php foreach($akun_kepalasekolah as $row) { ?>
 				<tr>
-					<td> nama </td>
-					<td> username </td>
-					<td> password </td>
-					<td> hak_akses </td>
-					<td> 
-						<a href="<?php echo base_url('superadmin/setting_akun/edit');?>"><i class="material-icons">edit</i></a>
+					<td> <?php echo $row->nama ?> </td>
+					<td> <?php echo $row->username ?> </td>
+					<td> <?php echo $row->password ?> </td>
+					<td>
+						<a href="<?php echo base_url('superadmin/setting_akun/edit_kepalasekolah/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="edit <?php echo $row->nama ?> ?"><i class="material-icons">edit</i></a>
 						<br>
-						<a href="<?php echo base_url('superadmin/setting_akun/hapus');?>"><i class="material-icons">delete</i></a>
+						<a href="<?php echo base_url('superadmin/setting_akun/hapus/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="hapus <?php echo $row->nama ?> ?" onclick="return confirm('Apakah anda yakin ingin menghapus akun ini?')"><i class="material-icons">delete</i></a>
 					</td>
 				</tr>
+		  <?php } ?>
 			</tbody>
 		</table>
 	  </div>
 	</div>
+	<?php if(count($akun_kepalasekolah) == 0) { ?>
+	<div class="col s12 center">
+		<br>
+		  <i class="material-icons large blue-text">person</i><br>
+		  <h5>Belum ada Akun Kepala Sekolah</h5><br>
+		  <span> <a href="<?php echo base_url('superadmin/setting_akun/add_kepalasekolah')?>" class="btn-large blue waves-effect waves-light">buat akun</a> </span>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+	</div>
+	<?php } ?>
 	</div>
  </div>
  
@@ -269,54 +299,45 @@ dan juga tanggal script di ubah terlebih dahulu
 					<th> Nama </th>
 					<th> Username </th>
 					<th> Password </th>
-					<th> Hak Akses </th>
 					<th> </th>
 				</tr>
 			</thead>
 			<tbody>
+		  <?php foreach($akun_admin as $row) { ?>
 				<tr>
-					<td> nama </td>
-					<td> username </td>
-					<td> password </td>
-					<td> hak_akses </td>
-					<td> 
-						<a href="<?php echo base_url('superadmin/setting_akun/edit');?>"><i class="material-icons">edit</i></a>
+					<td> <?php echo $row->nama ?> </td>
+					<td> <?php echo $row->username ?> </td>
+					<td> <?php echo $row->password ?> </td>
+					<td>
+						<a href="<?php echo base_url('superadmin/setting_akun/edit_admin/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="edit <?php echo $row->nama ?> ?"><i class="material-icons">edit</i></a>
 						<br>
-						<a href="<?php echo base_url('superadmin/setting_akun/hapus');?>"><i class="material-icons">delete</i></a>
+						<a href="<?php echo base_url('superadmin/setting_akun/hapus/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="hapus <?php echo $row->nama ?> ?" onclick="return confirm('Apakah anda yakin ingin menghapus akun ini?')"><i class="material-icons">delete</i></a>
 					</td>
 				</tr>
+		  <?php } ?>
 			</tbody>
 		</table>
 	  </div>
 	</div>
+	<?php if(count($akun_admin) == 0) { ?>
+	<div class="col s12 center">
+		<br>
+		  <i class="material-icons large blue-text">person</i><br>
+		  <h5>Belum ada Akun Admin</h5><br>
+		  <span> <a href="<?php echo base_url('superadmin/setting_akun/add_admin')?>" class="btn-large blue waves-effect waves-light">buat akun</a> </span>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+	</div>
+	<?php } ?>
 	</div>
  </div>
 
-<!-- MODAL -->
-  <div id="pedoman_mutu" class="modal">
-    <div class="modal-content">
-      <h4>Pedoman Mutu <a href="#!" class="right modal-action modal-close btn-flat"><i class="material-icons">clear</i></a></h4>
-      <p>
-		<iframe src="https://drive.google.com/dokumen/d/0BxuiQ-cxi2TYY2FYNjl0TE44dmM/preview" width="100%" height="375px" style="border: none;" allowfullscreen></iframe>
-	  </p>
-    </div>
-  </div>
-  
-  <div id="notifikasi" class="modal">
-    <div class="modal-content">
-      <h4>Notifikasi <a href="#!" class="right modal-action modal-close btn-flat"><i class="material-icons">clear</i></a></h4>
-      <table class="bordered">
-		<tbody>
-			<tr>
-				<td> Wakil Management Mutu nama </td>
-				<td> nama_notif </td>
-				<td> tgl_notif </td>
-			</tr>
-		</tbody>
-	  </table>
-    </div>
-  </div>
-<!-- END MODAL -->
+<!--=========================MODALS=========================-->
+<?php $this->load->view('layout/modals'); ?>
+<!--=======================END MODALS=======================-->
 <!--=========================FOOTER=========================-->
 <?php $this->load->view('layout/footer'); ?>
 <!--=======================END FOOTER=======================-->

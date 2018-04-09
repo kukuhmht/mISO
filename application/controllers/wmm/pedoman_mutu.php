@@ -66,6 +66,7 @@ class Pedoman_mutu extends CI_Controller {
 	public function view_kirim_dokumen() {
 		$id_pedomanmutu 			= $this->uri->segment(4);
 		$data['title']				= 'Dokumen Pedoman Mutu';
+		$data['ambil_unit']			= $this->pedoman_mutu_model->ambil_unit()->result();
 		
 		$dt = $this->pedoman_mutu_model->view_dokumen($id_pedomanmutu);
 		
@@ -85,8 +86,12 @@ class Pedoman_mutu extends CI_Controller {
 	public function kirim_dokumen() {
 		$id_pedomanmutu = $this->uri->segment(4);
 		
-		$data['status_dokumen'] 	= 'terkirim';
-		$data['tgl_dikirim'] 		= date('Y-m-d H:i:s' );
+		$id_unit 				= $this->input->post('id_unit');
+		$data['tgl_dikirim'] 	= date('Y-m-d H:i:s' );
+		
+		$data = array(
+			'id_unit'	=> $id_unit,
+		);
 		
 		$where = array(
 			'id_pedomanmutu' => $id_pedomanmutu

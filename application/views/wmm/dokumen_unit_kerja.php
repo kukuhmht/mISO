@@ -56,11 +56,12 @@ dan juga tanggal script di ubah terlebih dahulu
             <i class="large material-icons">important_devices</i>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a class="waves-effect waves-light modal-trigger" href="#unitkerja" style="font-size:20px;">Daftar Unit Kerja</a></li>
+			<li><a class="waves-effect waves-light modal-trigger" href="#unitkerja" style="font-size:20px;">Daftar Unit Kerja <i class="material-icons right">arrow_drop_down</i></a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/pedoman_mutu'); ?>">Pedoman Mutu</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/home'); ?>">Dokumen WMM</a></li>
 			<li><a class="waves-effect waves-light blue" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/unit_kerja'); ?>">Dokumen Unit Kerja</a></li>
 			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/dokumen/dokumen_revisi'); ?>">Dokumen Revisi</a></li>
+			<li><a class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300" href="<?php echo base_url('wmm/laporan_dokumen'); ?>">Laporan Dokumen</a></li>
           </ul>
         </div>
       <div class="nav-content">
@@ -164,6 +165,8 @@ dan juga tanggal script di ubah terlebih dahulu
                   </li>
                 </ul>
               </li>
+              <li class="white"><div class="divider"></div></li>
+              <li class="white"><a href="<?php echo base_url('wmm/laporan_dokumen');?>" class="waves-effect waves-blue modal-trigger"><i class="material-icons">chrome_reader_mode</i> Laporan Dokumen </a></li>
               <li class="white"><div class="divider"></div></li>
               <li class="white"><a href="#notifikasi" class="waves-effect waves-blue modal-trigger"><i class="material-icons">notifications</i> Notifikasi<span class="new badge right yellow darken-3"></span></a></li>
 

@@ -1,6 +1,7 @@
 <!--
 ===============Author===============
 -Kukuh M HidayaTullah (29 Maret 2018)
+-Kukuh M HidayaTullah (07 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -16,7 +17,7 @@ dan juga tanggal script di ubah terlebih dahulu
     <div class="nav-wrapper blue lighten-1">
       <div class="row">
         <div class="col s12">
-          <a href="<?php echo base_url('wmm/home');?>" class="brand-logo" style="display:block;float:left;"><i class="material-icons">arrow_back</i> <?php echo $title ?> 'nama_dokumen'</a>
+          <a href="<?php echo base_url('wmm/home');?>" class="brand-logo" style="display:block;float:left;"><i class="material-icons">arrow_back</i> <?php echo $title ?> </a>
         </div>
       </div>
     </div>
@@ -24,18 +25,19 @@ dan juga tanggal script di ubah terlebih dahulu
 </div>
 <!--=======================END HEADER=======================-->
 <br>
+<form action="<?php echo base_url('wmm/profile/update/'.$this->session->userdata('id_user'));?>" method="post">
 <div class="row">
-	<div class="col s4 left">
+	<div class="col s12 m4 left">
 		<img class="responsive-img" src="<?php echo base_url('assets/images/pelog5.JPG');?>" />
 	</div>
-	<div class="col s6">
+	<div class="col s12 m6">
 		<span class="card-title col s12"> Unit Kerja </span>
 		<div class="card col s12">
-			<span class="card-title"> nama </span>
+			<span class="card-title"> <?php echo $this->session->userdata('nama');?> </span>
 		</div>
 		<span class="card-title col s12"> Username </span>
 		<div class="card col s12">
-			<span class="card-title"> username </span>
+			<span class="card-title"> <?php echo $this->session->userdata('username');?> </span>
 		</div>
 		<div class="col s12">
 		  <ul class="collapsible">
@@ -43,11 +45,11 @@ dan juga tanggal script di ubah terlebih dahulu
 			  <div class="collapsible-header">Ubah Password</div>
 			  <div class="collapsible-body transparent">
 				<div class="input-field col s12">
-				  <input required id="password required" name="password" type="text" class="validate" />
-				  <label for="password">Password Lama</label>
+				  <input required id="password_lama" name="password_lama" value="<?php echo $this->session->userdata('password');?>" type="password" class="validate" />
+				  <label for="password_lama">Password Lama</label>
 				</div>
 				<div class="input-field col s12">
-				  <input required id="password required" name="password" type="text" class="validate" />
+				  <input required id="password" name="password" type="password" class="validate" />
 				  <label for="password">Password Baru</label>
 				</div>
 				<div class="col s12 center">

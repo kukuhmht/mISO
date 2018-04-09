@@ -1,6 +1,7 @@
 <!--
 ===============Author===============
 -Kukuh M HidayaTullah (29 Maret 2018)
+-Kukuh M HidayaTullah (07 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -23,14 +24,33 @@ class Profile extends CI_Controller {
 			redirect('');
 		}
 		
-  //  $this->load->model('unit_kerja/profile_model');
+	$this->load->model('unit_kerja/profile_model');
   }
   
 	public function index() {
+		$user = $this->session->userdata('nama');
+		
 		$data['title']			= 'Profile';
 	//	$data['view_profile']	= $this->profile_model->view_profile()->result();
 
 		$this->load->view('unit_kerja/profile', $data);
+	}
+	
+	public function update() {
+		$id_user = $this->uri->segment(4);
+		
+		$password = $this->input->post('password');
+		
+		$data = array(
+			'password' => $password
+		);
+		
+		$where = array(
+			'id_user'	=> $id_user
+		);
+		$this->profile_model->update('user', $data, $where);
+
+		redirect('unit_kerja/profile');
 	}
 }
 ?>

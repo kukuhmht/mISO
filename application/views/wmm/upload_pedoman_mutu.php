@@ -36,7 +36,7 @@ dan juga tanggal script di ubah terlebih dahulu
 	  </div>
 	  <div class="col s12">
 		<center>
-		  <a href="https://drive.google.com/" target="_blank" class="btn-large waves-effect waves-light blue">upload dokumen via Google Drive <i class="material-icons" style="font-size:15px;">open_in_new</i></a>&nbsp;&nbsp;&nbsp;
+		  <a href="https://drive.google.com/drive/u/1/folders/1FSfSprjL7KAIDEFoIS_1eWHnkUQ66TLL?usp=sharing" target="_blank" class="btn-large waves-effect waves-light blue">upload dokumen via Google Drive <i class="material-icons" style="font-size:15px;">open_in_new</i></a>&nbsp;&nbsp;&nbsp;
 		  <a href="#about_google_drive" class="modal-trigger"><i class="material-icons grey-text">help</i></a>
 		</center>
 		<div class="input-field col s12">

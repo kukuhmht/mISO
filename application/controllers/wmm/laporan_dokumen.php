@@ -1,6 +1,5 @@
 <!--
 ===============Author===============
--Kukuh M HidayaTullah (29 Maret 2018)
 -Kukuh M HidayaTullah (07 April 2018)
 
 *ket:
@@ -10,7 +9,7 @@ dan juga tanggal script di ubah terlebih dahulu
 -->
 
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Profile extends CI_Controller {
+class Laporan_dokumen extends CI_Controller {
 
   public function __construct() {
     parent::__construct();
@@ -23,31 +22,14 @@ class Profile extends CI_Controller {
 		}else if(!$this->session->userdata('id_hakakses') == "3") {
 			redirect('');
 		}
-	$this->load->model('wmm/profile_model');
+	
+    //$this->load->model('wmm/laporan_dokumen_model');
   }
   
 	public function index() {
-		$data['title']			= 'Profile';
-	//	$data['view_profile']	= $this->profile_model->view_profile()->result();
+		$data['title']	= 'Laporan Semua Dokumen';
 
-		$this->load->view('wmm/profile', $data);
-	}
-
-	public function update() {
-		$id_user = $this->uri->segment(4);
-		
-		$password = $this->input->post('password');
-		
-		$data = array(
-			'password' => $password
-		);
-		
-		$where = array(
-			'id_user'	=> $id_user
-		);
-		$this->profile_model->update('user', $data, $where);
-
-		redirect('wmm/profile');
+		$this->load->view('wmm/laporan_dokumen', $data);
 	}
 }
 ?>

@@ -23,7 +23,7 @@ class Profile extends CI_Controller {
 			redirect('');
 		}
 		
-  //  $this->load->model('kepala_sekolah/profile_model');
+	$this->load->model('kepala_sekolah/profile_model');
   }
   
 	public function index() {
@@ -31,6 +31,23 @@ class Profile extends CI_Controller {
 	//	$data['view_profile']	= $this->profile_model->view_profile()->result();
 
 		$this->load->view('kepala_sekolah/profile', $data);
+	}
+	
+	public function update() {
+		$id_user = $this->uri->segment(4);
+		
+		$password = $this->input->post('password');
+		
+		$data = array(
+			'password' => $password
+		);
+		
+		$where = array(
+			'id_user'	=> $id_user
+		);
+		$this->profile_model->update('user', $data, $where);
+
+		redirect('kepala_sekolah/profile');
 	}
 }
 ?>
