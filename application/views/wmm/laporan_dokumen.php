@@ -1,6 +1,7 @@
 <!--
 ===============Author===============
 -Kukuh M HidayaTullah (07 April 2018)
+-Kukuh M HidayaTullah (10 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -199,22 +200,24 @@ dan juga tanggal script di ubah terlebih dahulu
 <!--=======================END HEADER=======================-->
 <div class="row" style="margin-top:-30px;">
   <div class="col s12">
-	<table class="striped bordered">
+	<table id="laporan" class="responsive striped bordered">
 	  <thead>
 		<tr>
 			<th> No. </th>
 			<th> Dokumen </th>
-			<th> Tanggal </th>
+			<th> Tanggal Dikirim </th>
 			<th> Keterangan </th>
 		</tr>
 	  </thead>
 	  <tbody>
+   	   <?php $no=1; foreach($list_laporan as $row) { ?>
 		<tr>
-			<td> 1. </td>
-			<td> ISO 9001:2012 <br> <i>POS Wajib</i> </td>
-			<td> 12, March 2018 </td>
-			<td> Pengiriman Dokumen dari Bidang SDM ke WMM </td>
+			<td> <?php echo $no++ ?> </td>
+			<td> <?php echo $row->nama_dokumen ?> </td>
+			<td> <?php echo $row->tanggal ?> </td>
+			<td> <?php echo $row->keterangan ?> </td>
 		</tr>
+	   <?php } ?>
 	  </tbody>
 	</table>
   </div>

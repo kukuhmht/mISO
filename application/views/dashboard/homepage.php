@@ -149,7 +149,6 @@ dan juga tanggal script di ubah terlebih dahulu
   <div class="container">
     <div class="row">
       <div class="col m6 l6 s12">
-        <h5 class="white-text">Slogan mISO</h5>
         <p class="grey-text text-lighten-4">Alpha Version 0.0.1</p>
       </div>
       <div class="col m6 l4 offset-l2 s12">
@@ -157,11 +156,11 @@ dan juga tanggal script di ubah terlebih dahulu
         <table>
 			<tbody>
 				<tr>
-					<td class="white-text left"> <i class="material-icons">call</i> Telepon </td>
+					<td class="white-text left"> <i class="material-icons">call</i> </td>
 					<td class="white-text"> +628987757455 </td>
 				</tr>
 				<tr>
-					<td class="white-text left"> <i class="material-icons">email</i> Email </td>
+					<td class="white-text left"> <i class="material-icons">email</i> </td>
 					<td class="white-text"> kukuhpelog15@gmail.com </td>
 				</tr>
 			</tbody>

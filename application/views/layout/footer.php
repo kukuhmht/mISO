@@ -39,6 +39,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js'></script>
 
     <script  src="<?php echo base_url('assets/js/custom.js');?>"></script>
+    <script  src="<?php echo base_url('assets/datatables/datatables.min.js');?>"></script>
 	<script  src="<?php echo base_url('assets/multiple_select/dual-listbox.js');?>"></script>
 <!--<script  src="<?php echo base_url('assets/js/materialize.min.js');?>"></script> -->
 
@@ -153,6 +154,13 @@ $('#nama_dokumen').change(function() {
 		$('#dokumen_path').val(d[0]['dokumen_path']);
 	});
 });
+</script>
+
+<!--datatables-->
+<script>
+$(document).ready(function() {
+    $('#laporan').DataTable();
+} );
 </script>
 
 </body>

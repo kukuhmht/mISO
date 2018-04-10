@@ -16,20 +16,7 @@ class Pedoman_mutu_model extends CI_Model {
 	}
 	
 	public function list_pedoman_mutu() {
-		return $this->db->query('
-		SELECT
-		  d.*,
-		  n.nama,
-		  u.nama_unit,
-		  h.hak_akses
-		FROM
-		  pedoman_mutu d
-		  JOIN penerima_pedomanmutu p USING (id_pedomanmutu)
-		  JOIN unit_kerja u USING (id_unit)
-		  JOIN USER n USING (id_unit)
-		  JOIN hak_akses h USING (id_hakakses)
-		ORDER BY tgl_upload DESC
-		');
+		return $this->db->query('SELECT *FROM pedoman_mutu ORDER BY tgl_upload DESC');
 	}
 	
 	public function ambil_unit() {
@@ -58,6 +45,11 @@ class Pedoman_mutu_model extends CI_Model {
 	
 	// input dokumen
 	function input($data,$table){
+		$this->db->insert($table,$data);
+	}
+	
+	// input untuk kirim ke sesuai Unit Kerja
+	function input_unit($data_unit,$table){
 		$this->db->insert($table,$data);
 	}
 	

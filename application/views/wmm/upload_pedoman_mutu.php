@@ -57,6 +57,23 @@ dan juga tanggal script di ubah terlebih dahulu
 			</li>
 		  </ul>
 		</div>
+		<div class="col s12">
+			<ul class="collapsible popout" data-collapsible="accordion">
+				<li>
+				  <div class="collapsible-header"><i class="material-icons">send</i>Kirim ke Unit Kerja</div>
+				  <div class="collapsible-body">
+					<input type="checkbox" id="select-all" />
+					<label class="black-text" for="select-all">Pilih Semua Unit</label>
+				  </div>
+				   <?php foreach($ambil_unit as $key => $row) { ?>
+				  <div class="collapsible-body">
+					<input class="second" value="<?php echo $row->id_unit ?>" name="id_unit" type="checkbox" id="selected<?php echo $key ?>" />
+					<label for="selected<?php echo $key ?>"><?php echo $row->nama_unit ?></label>
+				  </div>
+				   <?php } ?>
+				</li>
+			</ul>
+		</div>
 		<div class="input-field col s10">
 			<label>Catatan Pedoman Mutu</label>
 			<textarea id="catatan" name="catatan" class="materialize-textarea"></textarea>

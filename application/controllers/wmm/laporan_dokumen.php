@@ -1,6 +1,7 @@
 <!--
 ===============Author===============
 -Kukuh M HidayaTullah (07 April 2018)
+-Kukuh M HidayaTullah (10 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -23,11 +24,12 @@ class Laporan_dokumen extends CI_Controller {
 			redirect('');
 		}
 	
-    //$this->load->model('wmm/laporan_dokumen_model');
+    $this->load->model('wmm/laporan_dokumen_model');
   }
   
 	public function index() {
 		$data['title']	= 'Laporan Semua Dokumen';
+		$data['list_laporan']	= $this->laporan_dokumen_model->list_laporan()->result();
 
 		$this->load->view('wmm/laporan_dokumen', $data);
 	}

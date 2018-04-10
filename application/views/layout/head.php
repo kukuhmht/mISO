@@ -13,6 +13,7 @@
 	
 <!--<link rel="stylesheet" href="<?php echo base_url('assets/css/materialize.min.css');?>"> -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/custom.css');?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/datatables/datatables.min.css');?>">
 	<link rel="stylesheet" href="<?php echo base_url('assets/multiple_select/dual-listbox.css');?>">
 	
 	<!--Let browser know website is optimized for mobile-->
