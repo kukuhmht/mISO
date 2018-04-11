@@ -27,12 +27,19 @@ dan juga tanggal script di ubah terlebih dahulu
 <br>
 <br>
 <br>
-<form action="<?php echo base_url('superadmin/setting_akun/update/'.$id_user);?>" method="post">
+<form action="<?php echo base_url('superadmin/setting_akun/update_unit/'.$id_user);?>" method="post">
 <div class="row">
   <div class="col s1"></div>
   <div class="card col s10">
     <br>
-	<div class="col s12">
+		<div class="col s12">
+		<select required id="nama" name="nama" class="browser-default validate">
+		 <?php foreach($ambil_unit as $row) { ?>
+		  <option value="<?php echo $row->nama_unit ?>" <?php echo ($row->nama_unit == $nama_unit ? 'selected' : '') ?>> <?php echo $row->nama_unit ?> </option>
+		 <?php } ?>
+		</select>
+	</div>
+<!--<div class="col s12">
 		<select required id="nama" name="nama" class="browser-default validate">
 		  <option selected disabled value="<?php echo $nama ?>"> <?php echo $nama ?> </option>
 		  <optgroup label="Bidang">
@@ -59,7 +66,7 @@ dan juga tanggal script di ubah terlebih dahulu
 			<option value="Tata Usaha"> Tata Usaha </option>
 		  </optgroup>
 	    </select>
-	</div>
+	</div>-->
 	<div class="col s12 m6">
 		<div class="input-field col s12">
 		  <input required id="username" name="username" value="<?php echo $username ?>" type="text" class="validate" />
@@ -68,7 +75,7 @@ dan juga tanggal script di ubah terlebih dahulu
 	</div>
 	<div class="col s12 m6">
 		<div class="input-field col s12">
-		  <input required id="password" name="password" value="<?php echo $password ?>" type="text" class="validate" />
+		  <input required id="password" name="password" value="<?php echo $password ?>" type="password" class="validate" />
 		  <label for="password">password</label>
 		</div>
 	</div>

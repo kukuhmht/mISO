@@ -56,7 +56,7 @@ Class Admin extends CI_Controller {
 			);
 			
 		$this->session->set_userdata($data_session);
-		redirect('superadmin/home');
+		redirect('superadmin/setting_akun');
 		}else{
 			$this->session->set_flasdata(
 			'pesan',

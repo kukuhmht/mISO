@@ -160,7 +160,6 @@ dan juga tanggal script di ubah terlebih dahulu
 				<tr>
 					<th> Nama Unit </th>
 					<th> Username </th>
-					<th> Password </th>
 					<th> </th>
 				</tr>
 			</thead>
@@ -169,7 +168,6 @@ dan juga tanggal script di ubah terlebih dahulu
 				<tr>
 					<td> <?php echo $row->nama ?> </td>
 					<td> <?php echo $row->username ?> </td>
-					<td> <?php echo $row->password ?> </td>
 					<td> 
 						<a href="<?php echo base_url('superadmin/setting_akun/edit_unitkerja/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="edit <?php echo $row->nama ?> ?"><i class="material-icons">edit</i></a>
 						<br>
@@ -206,7 +204,6 @@ dan juga tanggal script di ubah terlebih dahulu
 				<tr>
 					<th> Nama </th>
 					<th> Username </th>
-					<th> Password </th>
 					<th> </th>
 				</tr>
 			</thead>
@@ -215,7 +212,6 @@ dan juga tanggal script di ubah terlebih dahulu
 				<tr>
 					<td> <?php echo $row->nama ?> </td>
 					<td> <?php echo $row->username ?> </td>
-					<td> <?php echo $row->password ?> </td>
 					<td>
 						<a href="<?php echo base_url('superadmin/setting_akun/edit_wmm/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="edit <?php echo $row->nama ?> ?"><i class="material-icons">edit</i></a>
 						<br>
@@ -252,7 +248,6 @@ dan juga tanggal script di ubah terlebih dahulu
 				<tr>
 					<th> Nama </th>
 					<th> Username </th>
-					<th> Password </th>
 					<th> </th>
 				</tr>
 			</thead>
@@ -261,7 +256,6 @@ dan juga tanggal script di ubah terlebih dahulu
 				<tr>
 					<td> <?php echo $row->nama ?> </td>
 					<td> <?php echo $row->username ?> </td>
-					<td> <?php echo $row->password ?> </td>
 					<td>
 						<a href="<?php echo base_url('superadmin/setting_akun/edit_kepalasekolah/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="edit <?php echo $row->nama ?> ?"><i class="material-icons">edit</i></a>
 						<br>
@@ -298,7 +292,6 @@ dan juga tanggal script di ubah terlebih dahulu
 				<tr>
 					<th> Nama </th>
 					<th> Username </th>
-					<th> Password </th>
 					<th> </th>
 				</tr>
 			</thead>
@@ -307,7 +300,6 @@ dan juga tanggal script di ubah terlebih dahulu
 				<tr>
 					<td> <?php echo $row->nama ?> </td>
 					<td> <?php echo $row->username ?> </td>
-					<td> <?php echo $row->password ?> </td>
 					<td>
 						<a href="<?php echo base_url('superadmin/setting_akun/edit_admin/'.$row->id_user);?>" class="tooltipped" data-position="left" data-delay="50" data-tooltip="edit <?php echo $row->nama ?> ?"><i class="material-icons">edit</i></a>
 						<br>

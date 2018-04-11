@@ -43,7 +43,7 @@ dan juga tanggal script di ubah terlebih dahulu
 	</div>
 	<div class="col s12 m5">
 		<div class="input-field col s12">
-		  <input required id="password" name="password" type="text" class="validate" />
+		  <input required id="password" name="password" type="password" class="validate" />
 		  <label for="password">password</label>
 		</div>
 	</div>

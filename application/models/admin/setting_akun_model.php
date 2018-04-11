@@ -16,6 +16,10 @@ class Setting_akun_model extends CI_Model {
 		$this->load->database();
 	}
 	
+	public function ambil_unit() {
+		return $this->db->query('SELECT *FROM unit_kerja');
+	}
+	
 	public function ambil_idunit($nama) {
 		return $this->db->query('SELECT id_unit FROM unit_kerja WHERE nama_unit = "'.$nama.'"');
 	}
@@ -76,6 +80,20 @@ class Setting_akun_model extends CI_Model {
 	// Edit User (mengambil ID dokumen dan menampilkan data tersebut)
 	public function edit($id_user){
 		$d	= $this->db->get_where('user',array('id_user'=>$id_user))->result_array();
+		return $d;
+	}
+	
+	// Edit User Unit Kerja
+	public function edit_unit($id_user){
+		$d	= $this->db->query('
+		SELECT
+		  d.*,
+		  u.nama_unit
+		FROM
+		  USER d
+		  JOIN unit_kerja u USING (id_unit)
+		WHERE id_user = "'.$id_user.'"
+		')->result_array();
 		return $d;
 	}
 	

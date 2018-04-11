@@ -170,7 +170,45 @@ dan juga tanggal script di ubah terlebih dahulu
 </div>
 <?php } ?>
 
-<div class="row center">
+<div class="row">
+	<div class="col s12 m3">
+		<a href="<?php echo base_url('unit_kerja/home');?>">
+		<div class="card-image">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img class="responsive-img" src="<?php echo base_url('assets/images/unit_kerja.png');?>" />
+		</div>
+		<div class="card col s12">
+			<h5 class="center"> Unit Kerja </h5>
+		</div>
+		</a>
+	</div>
+	
+	<div class="col s12 m3">
+		<a href="<?php echo base_url('wmm/home');?>">
+		<div class="card-image">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img class="responsive-img" src="<?php echo base_url('assets/images/kepala_unit.png');?>" />
+		</div>
+		<div class="card col s12">
+			<h5 class="center"> WMM </h5>
+		</div>
+		</a>
+	</div>
+	
+	<div class="col s12 m3">
+		<a href="<?php echo base_url('kepala_sekolah/home');?>">
+		<div class="card-image">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<img class="responsive-img" src="<?php echo base_url('assets/images/kepala_sekolah.png');?>" />
+		</div>
+		<div class="card col s12">
+			<h5 class="center"> Kepala Sekolah </h5>
+		</div>
+		</a>
+	</div>
+
 	<div class="col s12 m3">
 		<a href="<?php echo base_url('superadmin/setting_akun');?>">
 		<div class="card-image">

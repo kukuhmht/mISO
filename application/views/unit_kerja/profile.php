@@ -45,7 +45,7 @@ dan juga tanggal script di ubah terlebih dahulu
 			  <div class="collapsible-header">Ubah Password</div>
 			  <div class="collapsible-body transparent">
 				<div class="input-field col s12">
-				  <input required id="password_lama" name="password_lama" value="<?php echo $this->session->userdata('password');?>" type="password" class="validate" />
+				  <input readonly required id="password_lama" name="password_lama" value="<?php echo $this->session->userdata('password');?>" type="password" class="validate" />
 				  <label for="password_lama">Password Lama</label>
 				</div>
 				<div class="input-field col s12">

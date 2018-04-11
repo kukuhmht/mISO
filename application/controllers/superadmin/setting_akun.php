@@ -44,7 +44,8 @@ class Setting_akun extends CI_Controller {
 	}
 	
 	public function add_unitkerja() {
-		$data['title']	= 'Tambah Akun Unit Kerja';
+		$data['title']		= 'Tambah Akun Unit Kerja';
+		$data['ambil_unit']	= $this->setting_akun_model->ambil_unit()->result();
 
 		$this->load->view('admin/add_akun_unitkerja', $data);
 	}
@@ -78,7 +79,7 @@ class Setting_akun extends CI_Controller {
 	}
 	
 	function tambah_unitkerja(){
-	//	$id_hakakses	= $this->input->post('id_hakakses');
+	//	$id_unit		= $this->input->post('id_unit');
 		$nama 			= $this->input->post('nama');
 		$username		= $this->input->post('username');
 		$password		= $this->input->post('password');
@@ -149,12 +150,14 @@ class Setting_akun extends CI_Controller {
 	public function edit_unitkerja(){
 		$id_user = $this->uri->segment(4);
 		$data['title']	= 'Edit Akun Unit Kerja';
+		$data['ambil_unit']	= $this->setting_akun_model->ambil_unit()->result();
 
-		$dt = $this->setting_akun_model->edit($id_user);
+		$dt = $this->setting_akun_model->edit_unit($id_user);
 
 		$data['id_user']	= $dt['0']['id_user'];
 		$data['id_hakakses']= $dt['0']['id_hakakses'];
 		$data['nama']		= $dt['0']['nama'];
+		$data['nama_unit']	= $dt['0']['nama_unit'];
 		$data['username']	= $dt['0']['username'];
 		$data['password']	= $dt['0']['password'];
 
@@ -201,6 +204,32 @@ class Setting_akun extends CI_Controller {
 		
 		$data = array(
 			'id_hakakses'	=> $id_hakakses,
+			'nama' 			=> $nama,
+			'username'		=> $username,
+			'password'		=> $password,
+		);
+		$where = array(
+			'id_user' => $id_user
+		);
+		$this->setting_akun_model->update('user',$data,$where);
+		
+		redirect('superadmin/setting_akun');
+	}
+	
+	public function update_unit(){
+		$id_user = $this->uri->segment(4);
+		
+		$id_hakakses	= $this->input->post('id_hakakses');
+		$nama 			= $this->input->post('nama');
+		$username		= $this->input->post('username');
+		$password		= $this->input->post('password');
+		
+		// select id_unit from unit_kerja where nama_unit = $nama
+		$id_unit = $this->setting_akun_model->ambil_idunit($nama)->result();
+		
+		$data = array(
+			'id_hakakses'	=> 2,
+			'id_unit'		=> $id_unit[0]->id_unit,
 			'nama' 			=> $nama,
 			'username'		=> $username,
 			'password'		=> $password,

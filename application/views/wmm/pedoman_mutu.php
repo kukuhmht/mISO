@@ -1,7 +1,7 @@
 <!--
 ===============Author===============
 -Kukuh M HidayaTullah (04 April 2018)
--Kukuh M HidayaTullah (10 April 2018)
+-Kukuh M HidayaTullah (11 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -235,19 +235,6 @@ dan juga tanggal script di ubah terlebih dahulu
 			</div>
 			<div class="card-content">
 			  <span class="activator grey-text text-darken-4"><b><?php echo $row->nama_dokumen ?></b> <i class="material-icons right">more_vert</i> <br></span>
-			<!--<span class="grey-text"> <b><?php echo $row->nama ?></b> - </span>
-			  <span class="grey-text"> <b><?php echo $row->hak_akses ?></b> <br></span>  -->
-			  
-			<!--<div class="chip right">
-				<?php echo $row->status_dokumen ?>
-				<?php
-				if($row->status_dokumen == '')
-				{
-					echo "<span style='font-size:12px;'> <b>belum ada konfirmasi</b> </span>";
-				}
-				?>
-			  </div> -->
-			  
 			  <br><br><br>
 			  <a href="<?php echo base_url('wmm/pedoman_mutu/view_dokumen/'.$row->id_pedomanmutu); ?>" class="waves-effect waves-light btn green"> view detail </a>
 			 <?php if(empty($row->tgl_dikirim)==true) { ?>

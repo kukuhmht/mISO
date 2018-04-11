@@ -35,6 +35,14 @@ dan juga tanggal script di ubah terlebih dahulu
 	<div class="col s12">
 		<select required id="nama" name="nama" class="browser-default validate">
 		  <option selected disabled> Pilih Unit </option>
+		 <?php foreach($ambil_unit as $row) { ?>
+		  <option value="<?php echo $row->nama_unit ?>"> <?php echo $row->nama_unit ?> </option>
+		 <?php } ?>
+		</select>
+	</div>
+<!--<div class="col s12">
+		<select required id="nama" name="nama" class="browser-default validate">
+		  <option selected disabled> Pilih Unit </option>
 		  <optgroup label="Bidang">
 			<option value="Humas dan Hubin"> Humas dan Hubin </option>
 			<option value="Kesiswaan"> Kesiswaan </option>
@@ -59,7 +67,7 @@ dan juga tanggal script di ubah terlebih dahulu
 			<option value="Tata Usaha"> Tata Usaha </option>
 		  </optgroup>
 	    </select>
-	</div>
+	</div> -->
 	<div class="col s12 m6">
 		<div class="input-field col s12">
 		  <input required id="username" name="username" type="text" class="validate" />
@@ -68,7 +76,7 @@ dan juga tanggal script di ubah terlebih dahulu
 	</div>
 	<div class="col s12 m6">
 		<div class="input-field col s12">
-		  <input required id="password" name="password" type="text" class="validate" />
+		  <input required id="password" name="password" type="password" class="validate" />
 		  <label for="password">password</label>
 		</div>
 	</div>

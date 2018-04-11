@@ -18,7 +18,7 @@ dan juga tanggal script di ubah terlebih dahulu
 <div class="parallax-container center valign-wrapper" style="margin-top:-47px;">
 	<div class="row">
 	  <div class="col s12 center white-text">
-		<a href="<?php echo base_url('dashboard/home');?>" class="waves-effect waves-light btn-large blue animated fadeInUp">Logo mISO</a>
+		<a href="<?php echo base_url('dashboard/home');?>" class="animated fadeInUp"> <img src="<?php echo base_url('assets/images/logo_v1.png');?>" class="responsive-img" /> </a>
 		<h1 class="white-text lighten-2 animated zoomIn" style="font-family:Calibri Light (Headings);font-weight:299;">Pelajari Fitur mISO</h1>
 	  </div>
 	</div>

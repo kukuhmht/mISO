@@ -38,7 +38,7 @@ class Home_model extends CI_Model {
 	
 	//Ambil Data Status Dokumen dan tampikan di Select view_dokumen_unit_kerja
 	public function ambil_statusdokumen() {
-		return $this->db->query('SELECT *FROM status_dokumen');
+		return $this->db->query('SELECT *FROM status_dokumen LIMIT 2');
 	}
 	
 	// Lihat Dokumen (mengambil ID dokumen dan menampilkan data tersebut)

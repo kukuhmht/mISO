@@ -38,15 +38,14 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js'></script>
 
-    <script  src="<?php echo base_url('assets/js/jquery.min.js');?>"></script>
     <script  src="<?php echo base_url('assets/js/custom.js');?>"></script>
-    <script  src="<?php echo base_url('assets/datatables/datatables.min.js');?>"></script>
-<!--<script  src="<?php echo base_url('assets/multiple_select/dual-listbox.js');?>"></script> -->
+<!--<script  src="<?php echo base_url('assets/datatables/datatables.min.js');?>"></script> -->
+	<script  src="<?php echo base_url('assets/multiple_select/dual-listbox.js');?>"></script>
 <!--<script  src="<?php echo base_url('assets/js/materialize.min.js');?>"></script> -->
 
 <script>
 	$(document).ready(function(){
-	//	$('.sidenav').sidenav();
+		$('.sidenav').sidenav();
 		
 		$(".button-collapse").sideNav();
 			
@@ -70,6 +69,22 @@
 		});
 		
 		$('.parallax').parallax();
+		
+		DualListbox('.selectDemo',{
+		  addEvent: function(value) {
+			console.log(value);
+		  },
+		  removeEvent: function(value) {
+			console.log(value);
+		  },
+		  availableTitle: 'Available options',
+		  selectedTitle: 'Selected options',
+		  addButtonText: 'add',
+		  removeButtonText: 'remove',
+		  addAllButtonText: 'add all',
+		  removeAllButtonText: 'remove all',
+		  searchPlaceholder: 'search'
+		});
 	});
 </script>
 

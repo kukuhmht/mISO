@@ -60,7 +60,7 @@ dan juga tanggal script di ubah terlebih dahulu
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="#!" class="dropdown-button" data-activates="upload_dokumen">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UPLOAD <i class="material-icons right">arrow_drop_down</i></a></li>
-			<li><a class="waves-effect waves-light btn btn-large animated tada blue modal-trigger" href="#pedoman_mutu"><i class="material-icons left">book</i>Pedoman Mutu</a></li>
+			<li><a class="waves-effect waves-light btn btn-large animated tada blue" href="<?php echo base_url('unit_kerja/pedoman_mutu');?>"><i class="material-icons left">book</i>Pedoman Mutu</a></li>
           </ul>
         </div>
         <div class="nav-content">

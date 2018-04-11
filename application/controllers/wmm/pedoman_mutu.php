@@ -69,7 +69,7 @@ class Pedoman_mutu extends CI_Controller {
 	public function view_kirim_dokumen() {
 		$id_pedomanmutu 			= $this->uri->segment(4);
 		$data['title']				= 'Dokumen Pedoman Mutu';
-		$data['ambil_unit']			= $this->pedoman_mutu_model->ambil_unit()->result();
+		$data['ambil_unit']	= $this->pedoman_mutu_model->ambildokumen_sesuiaunit($id_pedomanmutu)->result();
 		
 		$dt = $this->pedoman_mutu_model->view_dokumen($id_pedomanmutu);
 		
