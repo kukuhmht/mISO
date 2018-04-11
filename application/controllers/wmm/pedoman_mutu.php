@@ -2,6 +2,7 @@
 ===============Author===============
 -Kukuh M HidayaTullah (29 Maret 2018)
 -Kukuh M HidayaTullah (04 April 2018)
+-Kukuh M HidayaTullah (11 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -44,7 +45,7 @@ class Pedoman_mutu extends CI_Controller {
 	public function view_dokumen() {
 		$id_pedomanmutu 			= $this->uri->segment(4);
 		$data['title']				= 'Dokumen Pedoman Mutu';
-	//	$data['ambil_statusdokumen']= $this->home_model->ambil_statusdokumen()->result();
+		$data['ambil_unit']			= $this->pedoman_mutu_model->ambildokumen_sesuiaunit($id_pedomanmutu)->result();
 		
 		/*tampilan pengubah tanggal
 			$data['tgl_upload'] 			= date("F jS, Y", strtotime($));
@@ -54,7 +55,7 @@ class Pedoman_mutu extends CI_Controller {
 		
 		$data['id_pedomanmutu']		= $dt['0']['id_pedomanmutu'];
 		$data['nama']				= $dt['0']['nama'];
-	//	$data['hak_akses']			= $dt['0']['hak_akses'];
+		$data['nama_unit']			= $dt['0']['nama_unit'];
 		$data['nama_dokumen']		= $dt['0']['nama_dokumen'];
 		$data['dokumen_path']		= $dt['0']['dokumen_path'];
 		$data['status_dokumen']		= $dt['0']['status_dokumen'];
@@ -74,7 +75,7 @@ class Pedoman_mutu extends CI_Controller {
 		
 		$data['id_pedomanmutu']		= $dt['0']['id_pedomanmutu'];
 		$data['nama']				= $dt['0']['nama'];
-	//	$data['hak_akses']			= $dt['0']['hak_akses'];
+		$data['nama_unit']			= $dt['0']['nama_unit'];
 		$data['nama_dokumen']		= $dt['0']['nama_dokumen'];
 		$data['dokumen_path']		= $dt['0']['dokumen_path'];
 		$data['status_dokumen']		= $dt['0']['status_dokumen'];
@@ -88,13 +89,15 @@ class Pedoman_mutu extends CI_Controller {
 	public function kirim_dokumen() {
 		$id_pedomanmutu = $this->uri->segment(4);
 		
+		$data['ambil_unit']	= $this->pedoman_mutu_model->ambildokumen_sesuiaunit($id_pedomanmutu)->result();
+		
 		$id_unit		= $this->input->post('id_unit');
 		$tgl_dikirim 	= date('Y-m-d H:i:s' );
 		
-		$data_unit = array(
-			'id_unit'			=> $id_unit,
-			'id_pedomanmutu'	=> $id_pedomanmutu,
-		);
+		// $data_unit = array(
+			// 'id_unit'		=> $id_unit,
+			// 'id_pedomanmutu'	=> $id_pedomanmutu,
+		// );
 		
 		$data = array(
 			'tgl_dikirim'	=> $tgl_dikirim,
@@ -104,39 +107,56 @@ class Pedoman_mutu extends CI_Controller {
 			'id_pedomanmutu' => $id_pedomanmutu
 		);
 		$this->pedoman_mutu_model->update('pedoman_mutu',$data,$where);
-		$this->pedoman_mutu_model->input($data_unit,'penerima_pedomanmutu');
+		// $this->pedoman_mutu_model->input($data_unit,'penerima_pedomanmutu');
 		
 		redirect('wmm/pedoman_mutu');
 	}
 	
 	function tambah(){
+		
+		if(empty($this->input->post('id_unit'))){
+			redirect('wmm/pedoman_mutu/upload');
+			
+			$this->session->set_flasdata(
+			'pesan',
+			'Pilih Unit Kerja Terlebih Dahulu!'
+			);
+		}
+		
+		$id_pedomanmutu = $this->db->query('SELECT id_pedomanmutu FROM pedoman_mutu ORDER BY id_pedomanmutu DESC LIMIT 1')->result();
+		$id_pedomanmutu = $id_pedomanmutu[0]->id_pedomanmutu + 1;
 
-		$id_unit 		= $this->input->post('id_unit');
-	//	$hak_akses 		= $this->input->post('hak_akses');
+		// $id_unit 		= $this->input->post('id_unit');
+		
+		
+	//	$id_user 		= $this->session->userdata('id_user');
 		$nama_dokumen 	= $this->input->post('nama_dokumen');
 		$dokumen_path	= $this->input->post('dokumen_path');
 		$catatan		= $this->input->post('catatan');
 		$tgl_upload	  	= date('Y-m-d H:i:s' );
 
-		// $data_unit = array(
-			// 'id_unit'			=> $id_unit,
-			// 'id_pedomanmutu'	=> $id_pedomanmutu,
-		// );
 		
 		$data = array(
-		//	'id_unit'	 		=> $id_unit,
-		//	'hak_akses'     	=> $hak_akses,
+		//	'id_user'			=> $id_user,
+			'id_pedomanmutu'	=> $id_pedomanmutu,
 			'nama_dokumen' 		=> $nama_dokumen,
 			'dokumen_path'		=> $dokumen_path,
 			'catatan'			=> $catatan,
 			'tgl_upload'	  	=> $tgl_upload
 			);
-		$test = $this->pedoman_mutu_model->input($data,'pedoman_mutu');
+		$this->pedoman_mutu_model->input($data,'pedoman_mutu');
 		
-		die($test);
-		
-		// $this->pedoman_mutu_model->input_unit($data_unit,'penerima_pedomanmutu');
-		// redirect('wmm/pedoman_mutu');
+		foreach($this->input->post('id_unit') as $id) {
+			$data_unit = array(
+				'id_pedomanmutu'	=> $id_pedomanmutu,
+				'id_unit'			=> $id
+			);
+			
+			
+			$this->pedoman_mutu_model->input_unit($data_unit,'penerima_pedomanmutu');
+		}
+			
+		redirect('wmm/pedoman_mutu');
 	}
 	
 	public function edit(){

@@ -31,13 +31,7 @@ dan juga tanggal script di ubah terlebih dahulu
 					<tr>
 						<td class="grey-text">Di upload oleh</td>
 						<td>
-							<b><?php echo $nama ?></b>
-							<?php
-							if($nama == '')
-							{
-								echo "<span style='font-size:12px;'>tidak di ketahui</span>";
-							}
-							?>
+							<b><?php echo $this->session->userdata('nama'); ?></b>
 						</td>
 					</tr>
 					<tr>
@@ -97,6 +91,29 @@ dan juga tanggal script di ubah terlebih dahulu
 				</tbody>
 			</table>			
 		</div>
+		
+		<div class="card col s12">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<span class="grey-text"> Dikirim ke Unit Kerja <br></span>
+						  <?php foreach($ambil_unit as $row) { ?>
+							<div class="chip">
+							  <?php echo $row->nama_unit ?>
+							</div>
+						  <?php } ?>
+							<?php
+							if($nama_unit == '')
+							{
+								echo "<center style='font-size:12px;'>tidak ada Unit yang di Pilih</center>";
+							}
+							?>
+						</td>
+					</tr>
+				</tbody>
+			</table>			
+		</div>
 	</div>
 
 	
@@ -109,17 +126,9 @@ dan juga tanggal script di ubah terlebih dahulu
 	</div>
 </div>
 
-<!--MODAL-->
-<div id="modal" class="modal modal-fixed-footer">
-	<div class="modal-content">
-	  <h4>Judul Modal</h4>
-	  <p>A bunch of text</p>
-	</div>
-	<div class="modal-footer">
-	  <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat "><i class="material-icons">clear</i></a>
-	</div>
-</div>
-<!--END MODAL-->
+<!--=========================FOOTER=========================-->
+<?php $this->load->view('layout/modals'); ?>
+<!--=======================END FOOTER=======================-->
 <!--=========================FOOTER=========================-->
 <?php $this->load->view('layout/footer'); ?>
 <!--=======================END FOOTER=======================-->

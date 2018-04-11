@@ -23,6 +23,20 @@ class Pedoman_mutu_model extends CI_Model {
 		return $this->db->get('unit_kerja');
 	}
 	
+	public function ambildokumen_sesuiaunit($id_pedomanmutu) {
+		return $this->db->query('
+		SELECT
+		  u.nama_unit
+		FROM
+		  pedoman_mutu d
+		  LEFT JOIN penerima_pedomanmutu p USING (id_pedomanmutu)
+		  LEFT JOIN unit_kerja u USING (id_unit)
+		  LEFT JOIN USER n USING (id_unit)
+		  LEFT JOIN hak_akses h USING (id_hakakses)
+		WHERE id_pedomanmutu = "'.$id_pedomanmutu.'"
+		');
+	}
+	
 	// Lihat Dokumen Pedoman Mutu (mengambil ID dokumen dan menampilkan data tersebut)
 	public function view_dokumen($id_pedomanmutu){
 		$d	= $this->db->query('
@@ -33,12 +47,11 @@ class Pedoman_mutu_model extends CI_Model {
 		  h.hak_akses
 		FROM
 		  pedoman_mutu d
-		  JOIN penerima_pedomanmutu p USING (id_pedomanmutu)
-		  JOIN unit_kerja u USING (id_unit)
-		  JOIN USER n USING (id_unit)
-		  JOIN hak_akses h USING (id_hakakses)
+		  LEFT JOIN penerima_pedomanmutu p USING (id_pedomanmutu)
+		  LEFT JOIN unit_kerja u USING (id_unit)
+		  LEFT JOIN USER n USING (id_unit)
+		  LEFT JOIN hak_akses h USING (id_hakakses)
 		WHERE id_pedomanmutu = "'.$id_pedomanmutu.'"
-		ORDER BY tgl_upload DESC
 		')->result_array();
 		return $d;
 	}
@@ -50,7 +63,7 @@ class Pedoman_mutu_model extends CI_Model {
 	
 	// input untuk kirim ke sesuai Unit Kerja
 	function input_unit($data_unit,$table){
-		$this->db->insert($table,$data);
+		$this->db->insert($table,$data_unit);
 	}
 	
 	// Input Tanggal Otomatis

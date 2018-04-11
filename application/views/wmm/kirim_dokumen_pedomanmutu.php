@@ -1,6 +1,7 @@
 <!--
 ===============Author===============
 -Kukuh M HidayaTullah (04 April 2018)
+-Kukuh M HidayaTullah (11 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -29,17 +30,20 @@ dan juga tanggal script di ubah terlebih dahulu
 		<div class="col s6">
 			<ul class="collapsible popout" data-collapsible="accordion">
 				<li>
-				  <div class="collapsible-header"><i class="material-icons">send</i>Kirim ke Unit Kerja</div>
+				  <div class="collapsible-header"><i class="material-icons">send</i>Dikirim ke Unit Kerja</div>
 				  <div class="collapsible-body">
-					<input type="checkbox" id="select-all" />
-					<label class="black-text" for="select-all">Pilih Semua Unit</label>
+				  <?php foreach($ambil_unit as $row) { ?>
+					<div class="chip">
+					  <?php echo $row->nama_unit ?>
+					</div>
+				  <?php } ?>
+					<?php
+					if($nama_unit == '')
+					{
+						echo "<center style='font-size:12px;'>tidak ada Unit yang di Pilih</center>";
+					}
+					?>
 				  </div>
-				   <?php foreach($ambil_unit as $key => $row) { ?>
-				  <div class="collapsible-body">
-					<input class="second" value="<?php echo $row->id_unit ?>" name="id_unit" type="checkbox" id="selected<?php echo $key ?>" />
-					<label for="selected<?php echo $key ?>"><?php echo $row->nama_unit ?></label>
-				  </div>
-				   <?php } ?>
 				</li>
 			</ul>
 		</div>
@@ -71,13 +75,7 @@ dan juga tanggal script di ubah terlebih dahulu
 					<tr>
 						<td class="grey-text">Di upload oleh</td>
 						<td>
-							<b><?php echo $nama ?></b>
-							<?php
-							if($nama == '')
-							{
-								echo "<span style='font-size:12px;'>tidak di ketahui</span>";
-							}
-							?>
+							<b><?php echo $this->session->userdata('nama'); ?></b>
 						</td>
 					</tr>
 					<tr>

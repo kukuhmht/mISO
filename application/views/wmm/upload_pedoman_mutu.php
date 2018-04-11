@@ -27,6 +27,11 @@ dan juga tanggal script di ubah terlebih dahulu
 <div class="container">
 <form action="<?php echo base_url('wmm/pedoman_mutu/tambah');?>" method="post">
 <div class="row">
+	<div class="col s3"></div>
+	<div class="col s6 animated fadeInDown">
+		<center class="red-text"> <?php echo $this->session->flashdata('pesan') ?> </center>
+	</div>
+	<div class="col s3"></div>
 	<div class="col s12">
 	  <div class="col s12">
 		<div class="input-field col s7">
@@ -48,7 +53,7 @@ dan juga tanggal script di ubah terlebih dahulu
 		<div class="col s12">
 		  <ul class="collapsible">
 			<li>
-			  <div class="collapsible-header animated fadeInDown">lihat video cara upload dokumen</div>
+			  <div class="collapsible-header">lihat video cara upload dokumen</div>
 			  <div class="collapsible-body">
 				<div class="video-container">
 				  <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
@@ -58,7 +63,7 @@ dan juga tanggal script di ubah terlebih dahulu
 		  </ul>
 		</div>
 		<div class="col s12">
-			<ul class="collapsible popout" data-collapsible="accordion">
+			<ul class="collapsible popout animated tada" data-collapsible="accordion">
 				<li>
 				  <div class="collapsible-header"><i class="material-icons">send</i>Kirim ke Unit Kerja</div>
 				  <div class="collapsible-body">
@@ -67,7 +72,7 @@ dan juga tanggal script di ubah terlebih dahulu
 				  </div>
 				   <?php foreach($ambil_unit as $key => $row) { ?>
 				  <div class="collapsible-body">
-					<input class="second" value="<?php echo $row->id_unit ?>" name="id_unit" type="checkbox" id="selected<?php echo $key ?>" />
+					<input class="second" value="<?php echo $row->id_unit ?>" name="id_unit[]" type="checkbox" id="selected<?php echo $key ?>" />
 					<label for="selected<?php echo $key ?>"><?php echo $row->nama_unit ?></label>
 				  </div>
 				   <?php } ?>
