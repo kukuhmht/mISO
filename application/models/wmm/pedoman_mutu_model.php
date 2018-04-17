@@ -87,5 +87,16 @@ class Pedoman_mutu_model extends CI_Model {
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+	
+	public function cari($query) {
+		return $this->db->query('
+		SELECT
+		  *
+		FROM
+		  pedoman_mutu
+		WHERE nama_dokumen LIKE "%'.$query.'%"
+		ORDER BY nama_dokumen ASC
+		');
+	}
 }
 ?>

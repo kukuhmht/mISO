@@ -102,3 +102,35 @@
     </div>
   </div>
 <!-- end Daftar Unit Kerja -->
+
+<!-- Filter Tanggal WMM -->
+  <div id="filter" class="modal bottom-sheet">
+   <form action="<?php echo base_url('');?>" method="post">
+    <div class="modal-content">
+      <h4>Filter Dokumen <i class="material-icons" style="font-size:35px;">event_note</i> <button type="submit" class="right btn blue waves-effect waves-light">filter</button></h4>
+		<ul class="collection">
+		  <li class="collection-item">
+		   <div class="col s4">
+			<label>Bulan</label>
+			<select required id="bulan required" name="bulan" class="browser-default validate">
+			 <?php foreach($ambil_bulan as $row) { ?>
+			  <option value="<?php echo $row->tgl ?>"> <?php echo $row->tgl ?> </option>
+			 <?php } ?>
+			</select>
+		   </div>
+		  </li>
+		  <li class="collection-item">
+			<label>Tahun</label>
+			<select required id="tahun" name="tahun" class="browser-default validate">
+				<option value="2017"> 2017 </option>
+				<option value="2018"> 2018 </option>
+			</select>
+		  </li>
+		</ul>
+    </div>
+   </form>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">clear</i></a>
+    </div>
+  </div>
+<!-- end Filter Tanggal WMM -->

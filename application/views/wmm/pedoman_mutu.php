@@ -22,9 +22,9 @@ dan juga tanggal script di ubah terlebih dahulu
             
             <li>
               
-              <form style="height:64px;">
-                <div class="input-field ">
-                  <input id="search" type="search" required placeholder="Search">
+              <form action="<?php echo base_url('wmm/pedoman_mutu');?>" method="post" style="height:64px;">
+                <div class="input-field">
+                  <input id="search" name="search" type="search" placeholder="Cari Pedoman Mutu">
                   <label class="label-icon" for="search"><i class="material-icons" style="margin-top:-12px;">search</i></label>
                   <i class="material-icons">close</i>
                 </div>
@@ -51,7 +51,7 @@ dan juga tanggal script di ubah terlebih dahulu
           <a class="fadeInLogo brand-logo animated slideInUp">
             <!-- M -->
             <!-- <img src="https://materializecss.com/res/materialize.svg" alt="" style="margin-top:12px;" height="40px"/> -->
-            <i class="large material-icons">important_devices</i>
+            <img class="responsive-img" src="<?php echo base_url('assets/images/logo_v1.png'); ?>" style="margin-top:7px;"/>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="<?php echo base_url('wmm/pedoman_mutu/upload');?>" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Upload Pedoman Mutu"> <i class="material-icons" style="font-size:30px;">&nbsp; file_upload &nbsp;</i> </a></li>
@@ -68,7 +68,7 @@ dan juga tanggal script di ubah terlebih dahulu
         <li class="sidenav-header blue lighten-2">
           <div class="row">
             <div class="col s4">
-                <img src="https://gravatar.com/avatar/961997eb7fd5c22b3e12fb3c8ca14e11?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" width="48px" height="48px" alt="" class="circle responsive-img valign profile-image">
+                <img src="<?php echo base_url('assets/images/pelog5.jpg');?>" width="48px" height="48px" alt="" class="circle responsive-img valign profile-image">
             </div>
             <div class="col s8">
                 <a class="btn-flat dropdown-button waves-effect waves-light white-text" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nama');?> &nbsp;&nbsp;&nbsp;<i class="material-icons right">arrow_drop_down</i></a>
@@ -170,22 +170,22 @@ dan juga tanggal script di ubah terlebih dahulu
                 <div class="row">  
                   <div class="social-icons">
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-linkedin-square"></a></i>
+                      <a href="https://facebook.com/kukuh.mhidayatullah" target="_blank"> <i class="fab fa-facebook-square"></i> </a>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-facebook-official"></a></i>
+                      <a href="https://instagram.com/kukuhmht" target="_blank"> <i class="fab fa-instagram"></i> </a>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-twitter"></a></i>
+                      <a href="https://twitter.com/pelog15" target="_blank"><i class="fab fa-twitter-square"></i></a></i>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-google-plus"></a></i>
+                      <a href="https://plus.google.com/u/2/+KukuhPelog15" target="_blank"><i class="fab fa-google-plus-square"></i></a></i>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-pinterest"></a></i>
+                      <a href="https://www.youtube.com/channel/UC37AU_znOXTpSSmnxL6neHQ" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-youtube"></a></i>
+                      <a href="https://github.com/kukuhpelog/" target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                   </div>
                 </div>

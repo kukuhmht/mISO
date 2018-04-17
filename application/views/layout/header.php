@@ -19,11 +19,12 @@
           <a class="fadeInLogo brand-logo animated slideInUp">
             <!-- M -->
             <!-- <img src="https://materializecss.com/res/materialize.svg" alt="" style="margin-top:12px;" height="40px"/> -->
-            <i class="large material-icons">important_devices</i>
+            <img class="responsive-img" src="<?php echo base_url('assets/images/logo_v1.png'); ?>" style="margin-top:7px;"/>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="<?php echo base_url(''); ?>" class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300"> Memperkenalkan mISO </a></li>
-			<li><a href="<?php echo base_url('cara_menggunakan_miso'); ?>" class="waves-effect waves-light active" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300"> Menggunakan mISO </a></li>
+			<li><a href="<?php echo base_url('cara_menggunakan_miso'); ?>" class="waves-effect waves-light" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300"> Cara Menggunakan mISO </a></li>
+			<li><a href="<?php echo base_url('dashboard/home'); ?>" class="waves-effect waves-light active" style="font-size:20px;font-family:Calibri Light (Headings);font-weight:300"> Masuk mISO </a></li>
           </ul>
         </div>
         <div class="nav-content">
@@ -41,30 +42,30 @@
 			<br>
           </div>
         </li>
-              <li class="white"><a href="<?php echo base_url(''); ?>" class="waves-effect waves-blue"><i class="material-icons">notifications</i> Memperkenalkan mISO </a></li>
-              <li class="white"><a href="<?php echo base_url('cara_menggunakan_miso'); ?>" class="waves-effect waves-blue"><i class="material-icons">notifications</i> Menggunakan mISO </a></li>
+              <li class="white"><a href="<?php echo base_url(''); ?>" class="waves-effect waves-blue"><i class="material-icons">explore</i> Memperkenalkan mISO </a></li>
+              <li class="white"><a href="<?php echo base_url(''); ?>" class="waves-effect waves-blue"><i class="material-icons">accessibility</i> Cara Menggunakan mISO </a></li>
               <li class="white"><div class="divider"></div></li>
-              <li class="white"><a href="<?php echo base_url('dashboard/home'); ?>" class="waves-effect waves-blue"><i class="material-icons">notifications</i> Masuk mISO </a></li>
+              <li class="white"><a href="<?php echo base_url('dashboard/home'); ?>" class="waves-effect waves-blue"><i class="material-icons">input</i> Masuk mISO </a></li>
               <li class="sidenav-footer grey darken-2">
                 <div class="row">  
                   <div class="social-icons">
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-linkedin-square"></a></i>
+                      <a href="https://facebook.com/kukuh.mhidayatullah" target="_blank"> <i class="fab fa-facebook-square"></i> </a>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-facebook-official"></a></i>
+                      <a href="https://instagram.com/kukuhmht" target="_blank"> <i class="fab fa-instagram"></i> </a>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-twitter"></a></i>
+                      <a href="https://twitter.com/pelog15" target="_blank"><i class="fab fa-twitter-square"></i></a></i>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-google-plus"></a></i>
+                      <a href="https://plus.google.com/u/2/+KukuhPelog15" target="_blank"><i class="fab fa-google-plus-square"></i></a></i>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-pinterest"></a></i>
+                      <a href="https://www.youtube.com/channel/UC37AU_znOXTpSSmnxL6neHQ" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-youtube"></a></i>
+                      <a href="https://github.com/kukuhpelog/" target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                   </div>
                 </div>

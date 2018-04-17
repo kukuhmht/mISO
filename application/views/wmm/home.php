@@ -4,6 +4,10 @@
 -Kukuh M HidayaTullah (01 April 2018)
 -Kukuh M HidayaTullah (03 April 2018)
 -Kukuh M HidayaTullah (04 April 2018)
+-Kukuh M HidayaTullah (13 April 2018)
+-Kukuh M HidayaTullah (15 April 2018)
+-Kukuh M HidayaTullah (16 April 2018)
+-Kukuh M HidayaTullah (17 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -24,16 +28,17 @@ dan juga tanggal script di ubah terlebih dahulu
             
             <li>
               
-              <form style="height:64px;">
-                <div class="input-field ">
-                  <input id="search" type="search" required placeholder="Search">
+              <form action="<?php echo base_url('wmm/home');?>" method="post" style="height:64px;">
+                <div class="input-field">
+                  <input id="search" name="search" type="search" placeholder="Cari Dokumen WMM">
                   <label class="label-icon" for="search"><i class="material-icons" style="margin-top:-12px;">search</i></label>
                   <i class="material-icons">close</i>
                 </div>
               </form>
               
             </li>
-            <li><a href="#notifikasi" class="waves-effect waves-light modal-trigger"><i class="material-icons">notifications</i></a></li>
+            <li><a href="#filterwmm" class="waves-effect waves-light modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Filter Dokumen"><i class="material-icons">filter_list</i></a></li>
+            <li><a href="#notifikasi" class="waves-effect waves-light modal-trigger tooltipped" data-position="bottom" data-delay="50" data-tooltip="Notifikasi"><i class="material-icons">notifications</i></a></li>
             <li><a href="#profile" class="dropdown-button" data-activates="profile"><i class="material-icons">person</i></a></li>
             
           </ul>
@@ -53,7 +58,7 @@ dan juga tanggal script di ubah terlebih dahulu
           <a class="fadeInLogo brand-logo animated slideInUp">
             <!-- M -->
             <!-- <img src="https://materializecss.com/res/materialize.svg" alt="" style="margin-top:12px;" height="40px"/> -->
-            <i class="large material-icons">important_devices</i>
+            <img class="responsive-img" src="<?php echo base_url('assets/images/logo_v1.png'); ?>" style="margin-top:7px;"/>
           </a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 			<li><a href="<?php echo base_url('wmm/upload_dokumen');?>" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Upload Dokumen"><i class="material-icons" style="font-size:30px;">&nbsp; file_upload &nbsp;</i></a></li>
@@ -70,7 +75,7 @@ dan juga tanggal script di ubah terlebih dahulu
         <li class="sidenav-header blue lighten-2">
           <div class="row">
             <div class="col s4">
-                <img src="https://gravatar.com/avatar/961997eb7fd5c22b3e12fb3c8ca14e11?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" width="48px" height="48px" alt="" class="circle responsive-img valign profile-image">
+                <img src="<?php echo base_url('assets/images/user.png');?>" width="48px" height="48px" alt="" class="circle responsive-img valign profile-image">
             </div>
             <div class="col s8">
                 <a class="btn-flat dropdown-button waves-effect waves-light white-text" href="#" data-activates="profile-dropdown"><?php echo $this->session->userdata('nama');?> &nbsp;&nbsp;&nbsp;<i class="material-icons right">arrow_drop_down</i></a>
@@ -171,22 +176,22 @@ dan juga tanggal script di ubah terlebih dahulu
                 <div class="row">  
                   <div class="social-icons">
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-linkedin-square"></a></i>
+                      <a href="https://facebook.com/kukuh.mhidayatullah" target="_blank"> <i class="fab fa-facebook-square"></i> </a>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-facebook-official"></a></i>
+                      <a href="https://instagram.com/kukuhmht" target="_blank"> <i class="fab fa-instagram"></i> </a>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-twitter"></a></i>
+                      <a href="https://twitter.com/pelog15" target="_blank"><i class="fab fa-twitter-square"></i></a></i>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-google-plus"></a></i>
+                      <a href="https://plus.google.com/u/2/+KukuhPelog15" target="_blank"><i class="fab fa-google-plus-square"></i></a></i>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-pinterest"></a></i>
+                      <a href="https://www.youtube.com/channel/UC37AU_znOXTpSSmnxL6neHQ" target="_blank"><i class="fab fa-youtube"></i></a>
                     </div>
                     <div class="col s2">
-                      <a href="#"><i class="fa fa-lg fa-youtube"></a></i>
+                      <a href="https://github.com/kukuhpelog/" target="_blank"><i class="fab fa-github"></i></a>
                     </div>
                   </div>
                 </div>
@@ -213,6 +218,7 @@ dan juga tanggal script di ubah terlebih dahulu
   </nav>
 </div>
 </div>
+
 <!--=======================END HEADER=======================-->
 <div class="row" style="margin-top:-25px;">
   <div class="col s12">
@@ -328,7 +334,7 @@ dan juga tanggal script di ubah terlebih dahulu
   </div>
   
   <?php if(count($list_dokumen_wmm) == 0) { ?>
-  <div class="col s12 center">
+  <div class="col s12 grey lighten-2 center">
     <br>
     <br>
     <br>
@@ -349,6 +355,47 @@ dan juga tanggal script di ubah terlebih dahulu
 </div>
 
 <!--=========================MODALS=========================-->
+<!-- Filter Tanggal WMM -->
+  <div id="filterwmm" class="modal bottom-sheet">
+   <form action="<?php echo base_url('wmm/home/filter_wmm');?>" method="post">
+    <div class="modal-content">
+      <h4>Filter Dokumen <i class="material-icons" style="font-size:35px;">event_note</i> <button type="submit" class="right btn blue waves-effect waves-light">filter</button></h4>
+		<ul class="collection">
+		  <li class="collection-item">
+		   <div class="col s4">
+			<label>Bulan</label>
+			<select required id="tgl" name="tgl" class="browser-default validate">
+			 <?php foreach($ambil_bulanwmm as $row) { ?>
+			  <option value="<?php echo $row->tgl_id ?>"> <?php echo $row->tgl ?> </option>
+			  <option disabled> Bulan disini hanya tersedia jika ada Dokumen di bulan tersebut </option>
+			 <?php } ?>
+			 <?php if(count($ambil_bulanwmm) == 0) { ?>
+			  <option> tidak tersedia, karena tidak ada dokumen yang dikirim </option>
+			 <?php } ?>
+			</select>
+		   </div>
+		  </li>
+		  <li class="collection-item">
+			<label>Tahun</label>
+			<select required id="tahun" name="tahun" class="browser-default validate">
+			 <?php foreach($ambil_tahunwmm as $row) { ?>
+			  <option value="<?php echo $row->tahun ?>"> <?php echo $row->tahun ?> </option>
+			  <option disabled> Tahun disini hanya tersedia jika ada Dokumen di tahun tersebut </option>
+			 <?php } ?>
+			 <?php if(count($ambil_tahunwmm) == 0) { ?>
+			  <option> tidak tersedia, karena tidak ada dokumen yang dikirim </option>
+			 <?php } ?>
+			</select>
+		  </li>
+		</ul>
+    </div>
+   </form>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"><i class="material-icons">clear</i></a>
+    </div>
+  </div>
+<!-- end Filter Tanggal WMM -->
+
 <?php $this->load->view('layout/modals'); ?>
 <!--=======================END MODALS=======================-->
 <!--=========================FOOTER=========================-->

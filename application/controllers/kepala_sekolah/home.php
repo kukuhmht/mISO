@@ -2,6 +2,7 @@
 ===============Author===============
 -Kukuh M HidayaTullah (29 Maret 2018)
 -Kukuh M HidayaTullah (01 April 2018)
+-Kukuh M HidayaTullah (13 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -29,9 +30,29 @@ class Home extends CI_Controller {
   
 	public function index() {
 		$data['title']			= 'Kepala Sekolah';
-		$data['list_dokumen']	= $this->home_model->list_dokumen()->result();
+		$data['ambil_bulan']	= $this->home_model->ambil_bulan()->result();
+		$data['ambil_tahun']	= $this->home_model->ambil_tahun()->result();
+		
+		if(isset($_POST['search'])) {
+			$query 					= $this->input->post('search');
+			$data['list_dokumen']	= $this->home_model->cari($query)->result();
+		}else{
+			$data['list_dokumen']	= $this->home_model->list_dokumen()->result();
+		}
 
 		$this->load->view('kepala_sekolah/home', $data);
+	}
+	
+	public function filter() {
+		$data['title']			= 'Hasil Filter Dokumen';
+		$data['ambil_bulan']	= $this->home_model->ambil_bulan()->result();
+		$data['ambil_tahun']	= $this->home_model->ambil_tahun()->result();
+		$tgl 					= $this->input->post('tgl');
+		$tahun 					= $this->input->post('tahun');
+		
+		$data['list_dokumen']	= $this->home_model->filterdokumen($tgl, $tahun)->result();
+		
+		$this->load->view('kepala_sekolah/filter_dokumen', $data);
 	}
 	
 	public function view_dokumen() {

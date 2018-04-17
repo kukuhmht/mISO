@@ -3,6 +3,7 @@
 -Kukuh M HidayaTullah (29 Maret 2018)
 -Kukuh M HidayaTullah (04 April 2018)
 -Kukuh M HidayaTullah (11 April 2018)
+-Kukuh M HidayaTullah (13 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -29,7 +30,12 @@ class Pedoman_mutu extends CI_Controller {
   
 	public function index() {
 		$data['title']				= 'Pedoman Mutu';
-		$data['list_pedoman_mutu']	= $this->pedoman_mutu_model->list_pedoman_mutu()->result();
+		if(isset($_POST['search'])) {
+			$query 						= $this->input->post('search');
+			$data['list_pedoman_mutu']	= $this->pedoman_mutu_model->cari($query)->result();
+		}else{
+			$data['list_pedoman_mutu']	= $this->pedoman_mutu_model->list_pedoman_mutu()->result();
+		}
 
 		$this->load->view('wmm/pedoman_mutu', $data);
 	}

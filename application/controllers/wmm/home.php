@@ -3,6 +3,9 @@
 -Kukuh M HidayaTullah (29 Maret 2018)
 -Kukuh M HidayaTullah (01 April 2018)
 -Kukuh M HidayaTullah (01 April 2018)
+-Kukuh M HidayaTullah (13 April 2018)
+-Kukuh M HidayaTullah (16 April 2018)
+-Kukuh M HidayaTullah (17 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -29,12 +32,68 @@ class Home extends CI_Controller {
   }
   
 	public function index() {
-		$data['title']						= 'Wakil Management Mutu';
-		$data['list_dokumen_wmm']			= $this->home_model->list_dokumen_wmm()->result();
-		$data['list_dokumen_unit_kerja']	= $this->home_model->list_dokumen_unit_kerja()->result();
-		$data['list_dokumen_revisi']		= $this->home_model->list_dokumen_revisi()->result();
+		$user = $this->session->userdata('nama');
+		$id_user = $this->session->userdata('id_user');
+		$data['title']			= 'Wakil Management Mutu';
+		$data['ambil_bulanwmm']	= $this->home_model->ambil_bulanwmm($id_user)->result();
+		$data['ambil_tahunwmm']	= $this->home_model->ambil_tahunwmm($id_user)->result();
+
+		if(isset($_POST['search'])) {
+			$query 								= $this->input->post('search');
+			$tgl 								= $this->input->post('tgl');
+			$tahun 								= $this->input->post('tahun');
+			$data['list_dokumen_wmm']			= $this->home_model->caridokumen_wmm($query, $user)->result();
+			$data['list_dokumen_unit_kerja']	= $this->home_model->caridokumen_unitkerja($query, $user)->result();
+			$data['list_dokumen_revisi']		= $this->home_model->caridokumen_revisi($query, $user)->result();
+		}else{
+			$data['list_dokumen_wmm']			= $this->home_model->list_dokumen_wmm()->result();
+			$data['list_dokumen_unit_kerja']	= $this->home_model->list_dokumen_unit_kerja()->result();
+			$data['list_dokumen_revisi']		= $this->home_model->list_dokumen_revisi()->result();
+		}
 
 		$this->load->view('wmm/home', $data);
+	}
+	
+	public function filter_wmm() {
+		$user					= $this->session->userdata('nama');
+		$id_user				= $this->session->userdata('id_user');
+		$data['title']			= 'Hasil Filter Dokumen WMM';
+		$data['ambil_bulanwmm']	= $this->home_model->ambil_bulanwmm($id_user)->result();
+		$data['ambil_tahunwmm']	= $this->home_model->ambil_tahunwmm($id_user)->result();
+		$tgl 					= $this->input->post('tgl');
+		$tahun 					= $this->input->post('tahun');
+		
+		$data['list_dokumen_wmm']			= $this->home_model->filterdokumen_wmm($tgl, $tahun, $user)->result();
+		
+		$this->load->view('wmm/filter_dokumenwmm', $data);
+	}
+	
+	public function filter_unitkerja() {
+		$user					= $this->session->userdata('nama');
+		$id_user				= $this->session->userdata('id_user');
+		$data['title']			= 'Hasil Filter Dokumen Unit Kerja';
+		$data['ambil_bulan']	= $this->home_model->ambil_bulan()->result();
+		$data['ambil_tahun']	= $this->home_model->ambil_tahun()->result();
+		$tgl 					= $this->input->post('tgl');
+		$tahun 					= $this->input->post('tahun');
+		
+		$data['list_dokumen_unit_kerja']		= $this->home_model->filterdokumen_unitkerja($tgl, $tahun, $user)->result();
+		
+		$this->load->view('wmm/filter_dokumen_unitkerja', $data);
+	}
+	
+	public function filter_revisi() {
+		$user					= $this->session->userdata('nama');
+		$id_user				= $this->session->userdata('id_user');
+		$data['title']			= 'Hasil Filter Revisi Dokumen Unit Kerja';
+		$data['ambil_bulanrevisi']	= $this->home_model->ambil_bulanrevisi()->result();
+		$data['ambil_tahunrevisi']	= $this->home_model->ambil_tahunrevisi()->result();
+		$tgl 					= $this->input->post('tgl');
+		$tahun 					= $this->input->post('tahun');
+		
+		$data['list_dokumen_revisi']	= $this->home_model->filterdokumen_revisi($tgl, $tahun)->result();
+
+		$this->load->view('wmm/filter_dokumen_revisi', $data);
 	}
 	
 	public function view_dokumen() {

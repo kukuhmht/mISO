@@ -72,7 +72,7 @@ dan juga tanggal script di ubah terlebih dahulu
 	  <div class="col s12">
 		<h4 class="center-align" style="font-size:55px;font-family:Calibri Light (Headings);font-weight:250">Penyimpanan Google Drive</h4>
 		<p class="light center-align" style="font-size:25px;font-family:Calibri Light (Headings);font-weight:250">
-			Tidak perlu repot lagi mengupload dokumen, mISO menggunakan Google Drive sebagai media pentimpanan dokumen. Anda bisa menyimpan nya di akun Google Drive pribadi Anda atau mengupload ke folder yang telah di sediakan oleh mISO. yang perlu Anda lakukan hanyalah menyalin link yang dapat di bagikan.
+			Tidak perlu repot lagi mengupload dokumen, mISO menggunakan Google Drive sebagai media penyimpanan dokumen. Anda bisa menyimpan nya di akun Google Drive pribadi Anda atau mengupload ke folder yang telah di sediakan oleh mISO. yang perlu Anda lakukan hanyalah menyalin link yang dapat di bagikan.
 		</p>
 	  </div>
     </div>
@@ -149,20 +149,19 @@ dan juga tanggal script di ubah terlebih dahulu
   <div class="container">
     <div class="row">
       <div class="col m6 l6 s12">
-        <h5 class="white-text">Slogan mISO</h5>
-        <p class="grey-text text-lighten-4">Alpha Version 0.0.1</p>
+        <p class="grey-text text-lighten-4">Beta Version 1.0.0</p>
       </div>
       <div class="col m6 l4 offset-l2 s12">
         <h5 class="white-text">Contact Us</h5>
         <table>
 			<tbody>
 				<tr>
-					<td class="white-text left"> <i class="material-icons">call</i> Telepon </td>
+					<td class="white-text left"> <i class="material-icons">call</i> </td>
 					<td class="white-text"> +628987757455 </td>
 				</tr>
 				<tr>
-					<td class="white-text left"> <i class="material-icons">email</i> Email </td>
-					<td class="white-text"> kukuhpelog15@gmail.com </td>
+					<td class="white-text left"> <i class="material-icons">email</i> </td>
+					<td class="white-text"> kukuhpelig15@gmail.com </td>
 				</tr>
 			</tbody>
 		</table>

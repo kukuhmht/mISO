@@ -2,8 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col m6 l6 s12">
-        <h5 class="white-text">Slogan mISO</h5>
-        <p class="grey-text text-lighten-4">Alpha Version 0.1.1</p>
+        <p class="grey-text text-lighten-4">Beta Version 1.0.0</p>
       </div>
       <div class="col m6 l4 offset-l2 s12">
         <h5 class="white-text">Contact Us</h5>
@@ -16,6 +15,32 @@
 				<tr>
 					<td class="white-text left"> <i class="material-icons">email</i> </td>
 					<td class="white-text"> kukuhpelog15@gmail.com </td>
+				</tr>
+				<tr>
+					<td colspan=2>
+						<div class="row">
+						  <div class="social-icons">
+							<div class="col s2">
+							  <a href="https://facebook.com/kukuh.mhidayatullah" target="_blank"> <i class="fab fa-facebook-square"></i> </a>
+							</div>
+							<div class="col s2">
+							  <a href="https://instagram.com/kukuhmht" target="_blank"> <i class="fab fa-instagram"></i> </a>
+							</div>
+							<div class="col s2">
+							  <a href="https://twitter.com/pelog15" target="_blank"><i class="fab fa-twitter-square"></i></a></i>
+							</div>
+							<div class="col s2">
+							  <a href="https://plus.google.com/u/2/+KukuhPelog15" target="_blank"><i class="fab fa-google-plus-square"></i></a></i>
+							</div>
+							<div class="col s2">
+							  <a href="https://www.youtube.com/channel/UC37AU_znOXTpSSmnxL6neHQ" target="_blank"><i class="fab fa-youtube"></i></a>
+							</div>
+							<div class="col s2">
+							  <a href="https://github.com/kukuhpelog/" target="_blank"><i class="fab fa-github"></i></a>
+							</div>
+						  </div>
+						</div>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -39,7 +64,6 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js'></script>
 
     <script  src="<?php echo base_url('assets/js/custom.js');?>"></script>
-<!--<script  src="<?php echo base_url('assets/datatables/datatables.min.js');?>"></script> -->
 	<script  src="<?php echo base_url('assets/multiple_select/dual-listbox.js');?>"></script>
 <!--<script  src="<?php echo base_url('assets/js/materialize.min.js');?>"></script> -->
 
@@ -69,22 +93,6 @@
 		});
 		
 		$('.parallax').parallax();
-		
-		DualListbox('.selectDemo',{
-		  addEvent: function(value) {
-			console.log(value);
-		  },
-		  removeEvent: function(value) {
-			console.log(value);
-		  },
-		  availableTitle: 'Available options',
-		  selectedTitle: 'Selected options',
-		  addButtonText: 'add',
-		  removeButtonText: 'remove',
-		  addAllButtonText: 'add all',
-		  removeAllButtonText: 'remove all',
-		  searchPlaceholder: 'search'
-		});
 	});
 </script>
 

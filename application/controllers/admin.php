@@ -34,7 +34,7 @@ Class Admin extends CI_Controller {
 	
 	public function signin() {
 		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+		$password = md5($this->input->post('password'));
 		
 		$data = $this->login_admin_model->cek_akun($username, $password);
 		

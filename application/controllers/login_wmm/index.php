@@ -35,8 +35,8 @@ Class Index extends CI_Controller {
 	
 	public function signin() {
 		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		
+		$password = md5($this->input->post('password'));
+
 		$data = $this->index_model->cek_akun($username, $password);
 		
 		if(is_null($data[0]['username'])){

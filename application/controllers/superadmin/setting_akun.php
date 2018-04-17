@@ -29,6 +29,7 @@ class Setting_akun extends CI_Controller {
   
 	public function index() {
 		$data['title']				= 'Setting Akun mISO';
+		
 		$data['akun_admin']			= $this->setting_akun_model->akun_admin()->result();
 		$data['akun_unitkerja']		= $this->setting_akun_model->akun_unitkerja()->result();
 		$data['akun_wmm']			= $this->setting_akun_model->akun_wmm()->result();
@@ -66,7 +67,7 @@ class Setting_akun extends CI_Controller {
 	//	$id_hakakses	= $this->input->post('id_hakakses');
 		$nama 			= $this->input->post('nama');
 		$username		= $this->input->post('username');
-		$password		= $this->input->post('password');
+		$password		= md5($this->input->post('password'));
 		
 		$data = array(
 			'id_hakakses'	=> 1,
@@ -82,7 +83,7 @@ class Setting_akun extends CI_Controller {
 	//	$id_unit		= $this->input->post('id_unit');
 		$nama 			= $this->input->post('nama');
 		$username		= $this->input->post('username');
-		$password		= $this->input->post('password');
+		$password		= md5($this->input->post('password'));
 		
 		// select id_unit from unit_kerja where nama_unit = $nama
 		$id_unit = $this->setting_akun_model->ambil_idunit($nama)->result();
@@ -104,7 +105,7 @@ class Setting_akun extends CI_Controller {
 	//	$id_hakakses	= $this->input->post('id_hakakses');
 	//	$nama 			= $this->input->post('nama');
 		$username		= $this->input->post('username');
-		$password		= $this->input->post('password');
+		$password		= md5($this->input->post('password'));
 		
 		$data = array(
 			'id_hakakses'	=> 3,
@@ -120,7 +121,7 @@ class Setting_akun extends CI_Controller {
 	//	$id_hakakses	= $this->input->post('id_hakakses');
 	//	$nama 			= $this->input->post('nama');
 		$username		= $this->input->post('username');
-		$password		= $this->input->post('password');
+		$password		= md5($this->input->post('password'));
 		
 		$data = array(
 			'id_hakakses'	=> 4,
@@ -200,7 +201,7 @@ class Setting_akun extends CI_Controller {
 		$id_hakakses	= $this->input->post('id_hakakses');
 		$nama 			= $this->input->post('nama');
 		$username		= $this->input->post('username');
-		$password		= $this->input->post('password');
+		$password		= md5($this->input->post('password'));
 		
 		$data = array(
 			'id_hakakses'	=> $id_hakakses,
@@ -222,7 +223,7 @@ class Setting_akun extends CI_Controller {
 		$id_hakakses	= $this->input->post('id_hakakses');
 		$nama 			= $this->input->post('nama');
 		$username		= $this->input->post('username');
-		$password		= $this->input->post('password');
+		$password		= md5($this->input->post('password'));
 		
 		// select id_unit from unit_kerja where nama_unit = $nama
 		$id_unit = $this->setting_akun_model->ambil_idunit($nama)->result();
@@ -246,6 +247,18 @@ class Setting_akun extends CI_Controller {
 		$where = array('id_user' => $id_user);
 		$this->setting_akun_model->hapus($where,'user');
 		redirect('superadmin/setting_akun');
+	}
+	
+	public function search() {
+	//	$nama = $this->session->userdata('nama');
+		$data['title']	= 'Hasil Pencarian Akun';
+		
+		$query = $this->input->post('search');
+		
+		
+		$data['hasil']	= $this->setting_akun_model->cari($query)->result();
+	//	print_r($nama);
+		$this->load->view('admin/search_akun', $data);
 	}
 }
 ?>

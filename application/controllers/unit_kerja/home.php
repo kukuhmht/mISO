@@ -3,6 +3,9 @@
 -Kukuh M HidayaTullah (22 Maret 2018)
 -Kukuh M HidayaTullah (30 Maret 2018)
 -Kukuh M HidayaTullah (31 Maret 2018)
+-Kukuh M HidayaTullah (12 April 2018)
+-Kukuh M HidayaTullah (13 April 2018)
+-Kukuh M HidayaTullah (17 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -29,12 +32,35 @@ class Home extends CI_Controller {
   
 	public function index() {
 		$user = $this->session->userdata('nama');
+		$data['ambil_bulan']	= $this->home_model->ambil_bulan($user)->result();
+		$data['ambil_tahun']	= $this->home_model->ambil_tahun($user)->result();
 		
 		$data['title']					= 'Unit Kerja';
-		$data['list_dokumen']			= $this->home_model->list_dokumen($user)->result();
-		$data['list_dokumen_revisi']	= $this->home_model->list_dokumen_revisi($user)->result();
+		
+		if(isset($_POST['search'])) {
+			$query 							= $this->input->post('search');
+			$data['list_dokumen'] 			= $this->home_model->cari($query, $user)->result();
+			$data['list_dokumen_revisi']	= $this->home_model->cari($query, $user)->result();
+		}else{
+			$data['list_dokumen']			= $this->home_model->list_dokumen($user)->result();
+			$data['list_dokumen_revisi']	= $this->home_model->list_dokumen_revisi($user)->result();
+		}
 		
 		$this->load->view('unit_kerja/home', $data);
+	}
+	
+	public function filter() {
+		$user					= $this->session->userdata('nama');
+		$data['title']			= 'Hasil Filter Dokumen';
+		$data['ambil_bulan']	= $this->home_model->ambil_bulan($user)->result();
+		$data['ambil_tahun']	= $this->home_model->ambil_tahun($user)->result();
+		$tgl 					= $this->input->post('tgl');
+		$tahun 					= $this->input->post('tahun');
+		
+		$data['list_dokumen']			= $this->home_model->filterdokumen($tgl, $tahun, $user)->result();
+		$data['list_dokumen_revisi']	= $this->home_model->filterdokumen_revisi($tgl, $tahun, $user)->result();
+		
+		$this->load->view('unit_kerja/filter_dokumen', $data);
 	}
 	
 	public function view_dokumen() {
@@ -190,5 +216,17 @@ class Home extends CI_Controller {
 		
 		redirect('unit_kerja/home');
 	}
+	
+	// public function search() {
+		// $nama = $this->session->userdata('nama');
+		// $data['title']	= 'Hasil Pencarian Dokumen';
+		
+		// $query = $this->input->post('search');
+		
+		
+		// $data['hasil']	= $this->home_model->cari($query, $nama)->result();
+	// //	print_r($nama);
+		// $this->load->view('unit_kerja/search_dokumen', $data);
+	// }
 }
 ?>

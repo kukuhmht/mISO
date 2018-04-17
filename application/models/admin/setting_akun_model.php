@@ -106,5 +106,18 @@ class Setting_akun_model extends CI_Model {
 		$this->db->where($where);
 		$this->db->delete($table);
 	}
+	
+	public function cari($query) {
+		return $this->db->query('
+		SELECT
+		  d.*,
+		  h.hak_akses
+		FROM
+		  USER d
+		  JOIN hak_akses h USING (id_hakakses)
+		WHERE nama LIKE "%'.$query.'%"
+		ORDER BY nama ASC
+		');
+	}
 }
 ?>

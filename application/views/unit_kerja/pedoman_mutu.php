@@ -53,8 +53,8 @@ aside {
 </div>
 <!--=======================END HEADER=======================-->
   <main>
+<?php foreach($ambil_pedomanmutu as $row) { ?>
   <section id="special" class="blue">
-   <?php foreach($ambil_pedomanmutu as $row) { ?>
     <div class="container">
       <div class=""> <!-- using .row here causes this to not work in chrome! -->
         <article class="card col s10">
@@ -83,28 +83,36 @@ aside {
       </div>
     </div>
   </section>
-   
+<?php } ?>
+
+<?php if(count($ambil_pedomanmutu) == 0) { ?>
   <section id="special" class="blue">
-   <?php if(count($ambil_pedomanmutu) == 0) { ?>
     <div class="container">
       <div class=""> <!-- using .row here causes this to not work in chrome! -->
         <article class="card col s10">
           <section class="card-content">
-			<p> Tidak Ada Pedoman Mutu untuk Unit <?php echo $this->session->userdata('nama') ?> </p>
+			<br>
+			<br>
+			<br>
+			<br>
+			<h4 class="center grey-text"> Tidak Ada Pedoman Mutu untuk Unit <?php echo $this->session->userdata('nama') ?> </h4>
+			<br>
+			<br>
+			<br>
+			<br>
           </section>
           <div class="card-action">...</div>
         </article>
         <aside class="col s2">
           <ul class="section table-of-contents">
             <li><a class="active white-text" target="_blank">Catatan</a></li>
-            <li><a class="white-text">tidak ada catatan</a></li>
+            <li><a class="grey-text lighten-1">tidak ada catatan</a></li>
           </ul>
         </aside>
       </div>
     </div>
-   <?php } ?>
   </section>
-   <?php } ?>
+<?php } ?>
   <div class="clearfix"></div>
 </main>
 <!--=========================HEAD=========================-->

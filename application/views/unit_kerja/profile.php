@@ -28,7 +28,7 @@ dan juga tanggal script di ubah terlebih dahulu
 <form action="<?php echo base_url('unit_kerja/profile/update/'.$this->session->userdata('id_user'));?>" method="post">
 <div class="row">
 	<div class="col s12 m4 left">
-		<img class="responsive-img" src="<?php echo base_url('assets/images/pelog5.JPG');?>" />
+		<img class="responsive-img" src="<?php echo base_url('assets/images/user1.png');?>" />
 	</div>
 	<div class="col s12 m6">
 		<span class="card-title col s12"> Unit Kerja </span>

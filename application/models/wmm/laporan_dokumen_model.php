@@ -18,5 +18,16 @@ class Laporan_dokumen_model extends CI_Model {
 	public function list_laporan(){
 		return $this->db->get('laporan_dokumen');
 	}
+	
+	public function cari($query) {
+		return $this->db->query('
+		SELECT
+		  *
+		FROM
+		  laporan_dokumen
+		WHERE nama_dokumen LIKE "%'.$query.'%"
+		ORDER BY nama_dokumen ASC
+		');
+	}
 }
 ?>

@@ -60,9 +60,9 @@ dan juga tanggal script di ubah terlebih dahulu
 			<li>
 			  <div class="collapsible-header">lihat video cara upload dokumen</div>
 			  <div class="collapsible-body">
-				<div class="video-container">
-				  <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
-				</div>
+				<video class="container responsive-video" controls>
+				  <source src="<?php echo base_url('assets/video/mISO - Upload Dokumen ISO via Google Drive.avi');?>" type="video/avi">
+				</video>
 			  </div>
 			</li>
 		  </ul>

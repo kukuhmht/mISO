@@ -1,6 +1,8 @@
 <!--
 ===============Author===============
 -Kukuh M HidayaTullah (03 April 2018)
+-Kukuh M HidayaTullah (12 April 2018)
+-Kukuh M HidayaTullah (16 April 2018)
 
 *ket:
 author ini harus di isi!
@@ -27,15 +29,36 @@ class Dokumen extends CI_Controller {
   }
   
 	public function unit_kerja() {
-		$data['title']						= 'Dokumen Unit Kerja';
-		$data['list_dokumen_unit_kerja']	= $this->home_model->list_dokumen_unit_kerja()->result();
+		$data['title']			= 'Dokumen Unit Kerja';
+		$data['ambil_bulan']	= $this->home_model->ambil_bulan()->result();
+		$data['ambil_tahun']	= $this->home_model->ambil_tahun()->result();
+		if(isset($_POST['search'])) {
+			$query 							= $this->input->post('search');
+			$tgl 							= $this->input->post('tgl');
+			$tahun 							= $this->input->post('tahun');
+			$data['list_dokumen_unit_kerja']= $this->home_model->caridokumen_unitkerja($query)->result();
+			$data['list_dokumen_unit_kerja']= $this->home_model->filterdokumen_unitkerja($query, $tgl, $tahun)->result();
+		}else{
+			$data['list_dokumen_unit_kerja']	= $this->home_model->list_dokumen_unit_kerja()->result();
+		}
 
 		$this->load->view('wmm/dokumen_unit_kerja', $data);
 	}
 	
 	public function dokumen_revisi() {
 		$data['title']						= 'Revisi Dokumen Unit Kerja';
-		$data['list_dokumen_revisi']		= $this->home_model->list_dokumen_revisi()->result();
+		$data['ambil_bulanrevisi']	= $this->home_model->ambil_bulanrevisi()->result();
+		$data['ambil_tahunrevisi']	= $this->home_model->ambil_tahunrevisi()->result();
+		
+		if(isset($_POST['search'])) {
+			$query 							= $this->input->post('search');
+			$tgl 							= $this->input->post('tgl');
+			$tahun 							= $this->input->post('tahun');
+			$data['list_dokumen_revisi']	= $this->home_model->caridokumen_revisi($query)->result();
+			$data['list_dokumen_revisi']	= $this->home_model->filterdokumen_revisi($query, $tgl, $tahun)->result();
+		}else{
+			$data['list_dokumen_revisi']	= $this->home_model->list_dokumen_revisi()->result();
+		}
 
 		$this->load->view('wmm/dokumen_revisi', $data);
 	}
